@@ -809,11 +809,14 @@
                     <button class="btn-secondary" style="padding: 10px 20px; border-radius: 8px;" onclick="syncToGitHub()">
                         ☁️ Subir a Cloud
                     </button>
+                    <button class="btn-secondary" style="padding: 10px 20px; border-radius: 8px;" onclick="loadFromGitHub()">
+                        🔽 Descargar de Cloud
+                    </button>
                     <button class="btn-secondary" style="padding: 10px 20px; border-radius: 8px;" onclick="syncWithDashboard()">
                         🔄 Sincronizar Local
                     </button>
                     <button class="btn-secondary" style="padding: 10px 20px; border-radius: 8px;" onclick="downloadData()">
-                        📥 Descargar
+                        📥 Descargar JSON
                     </button>
                     <button class="btn-danger" style="padding: 10px 20px; border-radius: 8px;" onclick="resetAllData()">
                         🗑️ Reiniciar
@@ -980,6 +983,12 @@
 
         // Cargar datos del localStorage
         function loadData() {
+            // Primero intentar cargar desde GitHub si está configurado
+            const config = localStorage.getItem(GITHUB_CONFIG_KEY);
+            if (config) {
+                loadFromGitHub();
+            }
+            
             const stored = localStorage.getItem(STORAGE_KEY);
             if (stored) {
                 const data = JSON.parse(stored);
@@ -1006,9 +1015,59 @@
             };
         }
 
+        // Cargar datos desde GitHub automáticamente
+        async function loadFromGitHub() {
+            const config = getGitHubConfig();
+            if (!config) return;
+
+            try {
+                const githubUrl = `https://raw.githubusercontent.com/${config.username}/${config.repo}/main/app/data.json`;
+                
+                console.log('🔄 Cargando desde GitHub:', githubUrl);
+                
+                const response = await fetch(githubUrl, {
+                    cache: 'no-cache',
+                    headers: {
+                        'Accept': 'application/json'
+                    }
+                });
+
+                if (response.ok) {
+                    const githubData = await response.json();
+                    
+                    // Solo actualizar si hay datos más recientes
+                    const currentTimestamp = matchesData.modalityStats?.lastUpdated || 0;
+                    const githubTimestamp = githubData.modalityStats?.lastUpdated || 0;
+                    
+                    if (githubData.matches.length >= matchesData.matches.length) {
+                        matchesData = githubData;
+                        if (githubData.materials) materials = githubData.materials;
+                        saveData();
+                        renderMaterialChips();
+                        renderHistory();
+                        updateModalityStats();
+                        
+                        showSuccess('☁️ Datos actualizados desde GitHub');
+                        console.log('✅ Datos cargados desde GitHub:', githubData.matches.length, 'partidos');
+                    }
+                }
+            } catch (error) {
+                console.error('Error cargando desde GitHub:', error);
+            }
+        }
+
         // Guardar datos en localStorage
         function saveData() {
             matchesData.materials = materials;
+            // Añadir timestamp para saber cuál es la versión más reciente
+            if (!matchesData.modalityStats) {
+                matchesData.modalityStats = {
+                    bola8: { matchesPlayed: 0, matchesWon: 0, gamesPlayed: 0, gamesWon: 0 },
+                    bola9: { matchesPlayed: 0, matchesWon: 0, gamesPlayed: 0, gamesWon: 0 },
+                    bola10: { matchesPlayed: 0, matchesWon: 0, gamesPlayed: 0, gamesWon: 0 }
+                };
+            }
+            matchesData.modalityStats.lastUpdated = new Date().toISOString();
             localStorage.setItem(STORAGE_KEY, JSON.stringify(matchesData));
         }
 

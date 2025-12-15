@@ -1020,7 +1020,21 @@
     </div>
 
     <script>
-        const API_URL = 'https://www.xiscobarcelo.com/app/data.json';
+        const GITHUB_CONFIG_KEY = 'xisco_github_config';
+        
+        // Función para obtener la URL del data.json
+        function getDataURL() {
+            const config = localStorage.getItem(GITHUB_CONFIG_KEY);
+            if (config) {
+                const data = JSON.parse(config);
+                // URL raw de GitHub para acceso directo
+                return `https://raw.githubusercontent.com/${data.username}/${data.repo}/main/app/data.json`;
+            }
+            // Fallback a la URL por defecto si no hay configuración
+            return 'https://www.xiscobarcelo.com/app/data.json';
+        }
+
+        const API_URL = getDataURL();
         let currentData = null;
         
         // Variables de paginación
@@ -1038,7 +1052,41 @@
         });
 
         async function loadData() {
-            // Primero intentar cargar desde localStorage compartido
+            const config = localStorage.getItem('xisco_github_config');
+            
+            // Primero intentar cargar desde GitHub si está configurado
+            if (config) {
+                try {
+                    const data = JSON.parse(config);
+                    const githubUrl = `https://raw.githubusercontent.com/${data.username}/${data.repo}/main/app/data.json`;
+                    
+                    console.log('🔄 Cargando desde GitHub:', githubUrl);
+                    
+                    const response = await fetch(githubUrl, {
+                        cache: 'no-cache', // Siempre obtener la versión más reciente
+                        headers: {
+                            'Accept': 'application/json'
+                        }
+                    });
+                    
+                    if (response.ok) {
+                        const githubData = await response.json();
+                        currentData = githubData;
+                        
+                        // Guardar en localStorage como backup
+                        localStorage.setItem('shared_matches_data', JSON.stringify(githubData));
+                        
+                        document.getElementById('loading').style.display = 'none';
+                        displayDashboard(githubData);
+                        showGitHubSyncBanner();
+                        return;
+                    }
+                } catch (error) {
+                    console.error('Error cargando desde GitHub:', error);
+                }
+            }
+            
+            // Si GitHub falla, intentar localStorage compartido
             const sharedData = localStorage.getItem('shared_matches_data');
             if (sharedData) {
                 try {
@@ -1053,7 +1101,7 @@
                 }
             }
 
-            // Si no hay datos compartidos, intentar cargar desde servidor
+            // Fallback: intentar cargar desde servidor original
             try {
                 const response = await fetch(API_URL, {
                     method: 'GET',
@@ -1078,6 +1126,22 @@
                 console.error('Error al cargar datos:', error);
                 showFileUploadOption();
             }
+        }
+
+        function showGitHubSyncBanner() {
+            const banner = document.createElement('div');
+            banner.style.cssText = 'background: linear-gradient(135deg, #667eea, #764ba2); color: white; padding: 16px; text-align: center; border-radius: 12px; margin: 0 auto 20px; max-width: 1400px; font-weight: 600; box-shadow: 0 4px 12px rgba(102, 126, 234, 0.3);';
+            banner.innerHTML = '☁️ Datos sincronizados desde GitHub (Cloud)';
+            
+            const container = document.querySelector('.container');
+            const header = container.querySelector('header');
+            header.insertAdjacentElement('afterend', banner);
+            
+            setTimeout(() => {
+                banner.style.opacity = '0';
+                banner.style.transition = 'opacity 0.5s';
+                setTimeout(() => banner.remove(), 500);
+            }, 5000);
         }
 
         function showSharedDataBanner() {
