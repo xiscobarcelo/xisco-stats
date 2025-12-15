@@ -983,12 +983,6 @@
 
         // Cargar datos del localStorage
         function loadData() {
-            // Primero intentar cargar desde GitHub si está configurado
-            const config = localStorage.getItem(GITHUB_CONFIG_KEY);
-            if (config) {
-                loadFromGitHub();
-            }
-            
             const stored = localStorage.getItem(STORAGE_KEY);
             if (stored) {
                 const data = JSON.parse(stored);
@@ -1018,7 +1012,21 @@
         // Cargar datos desde GitHub automáticamente
         async function loadFromGitHub() {
             const config = getGitHubConfig();
-            if (!config) return;
+            if (!config) {
+                alert('⚠️ Primero configura GitHub en:\n🔧 Config GitHub');
+                return;
+            }
+
+            // Mostrar loading si es llamada manual
+            let isManualCall = false;
+            let btn = null;
+            if (event && event.target) {
+                isManualCall = true;
+                btn = event.target;
+                const originalText = btn.innerHTML;
+                btn.innerHTML = '⏳ Descargando...';
+                btn.disabled = true;
+            }
 
             try {
                 const githubUrl = `https://raw.githubusercontent.com/${config.username}/${config.repo}/main/app/data.json`;
@@ -1035,24 +1043,45 @@
                 if (response.ok) {
                     const githubData = await response.json();
                     
-                    // Solo actualizar si hay datos más recientes
-                    const currentTimestamp = matchesData.modalityStats?.lastUpdated || 0;
-                    const githubTimestamp = githubData.modalityStats?.lastUpdated || 0;
-                    
-                    if (githubData.matches.length >= matchesData.matches.length) {
-                        matchesData = githubData;
-                        if (githubData.materials) materials = githubData.materials;
-                        saveData();
-                        renderMaterialChips();
-                        renderHistory();
-                        updateModalityStats();
-                        
-                        showSuccess('☁️ Datos actualizados desde GitHub');
-                        console.log('✅ Datos cargados desde GitHub:', githubData.matches.length, 'partidos');
+                    // Validar que tiene la estructura correcta
+                    if (!githubData.matches || !Array.isArray(githubData.matches)) {
+                        throw new Error('Datos inválidos en GitHub');
                     }
+                    
+                    // Actualizar datos
+                    matchesData = githubData;
+                    if (githubData.materials) materials = githubData.materials;
+                    
+                    saveData();
+                    renderMaterialChips();
+                    renderHistory();
+                    updateModalityStats();
+                    
+                    const message = `☁️ Datos actualizados desde GitHub\n${githubData.matches.length} partidos sincronizados`;
+                    showSuccess(message);
+                    console.log('✅ Datos cargados desde GitHub:', githubData.matches.length, 'partidos');
+                    
+                    if (isManualCall && btn) {
+                        btn.innerHTML = '✅ ¡Descargado!';
+                        setTimeout(() => {
+                            btn.innerHTML = '🔽 Descargar de Cloud';
+                            btn.disabled = false;
+                        }, 2000);
+                    }
+                } else {
+                    throw new Error(`HTTP ${response.status}: ${response.statusText}`);
                 }
             } catch (error) {
                 console.error('Error cargando desde GitHub:', error);
+                
+                if (isManualCall) {
+                    alert(`❌ Error al descargar de GitHub:\n\n${error.message}\n\nVerifica:\n• Configuración de GitHub\n• El archivo app/data.json existe\n• Conexión a internet`);
+                    
+                    if (btn) {
+                        btn.innerHTML = '🔽 Descargar de Cloud';
+                        btn.disabled = false;
+                    }
+                }
             }
         }
 
@@ -1969,6 +1998,17 @@ Escribe "BORRAR" para confirmar:`;
             if (e.key === 'Enter') {
                 e.preventDefault();
                 addMaterial();
+            }
+        });
+
+        // Cargar desde GitHub después de que la página esté lista (en segundo plano)
+        window.addEventListener('load', () => {
+            const config = localStorage.getItem(GITHUB_CONFIG_KEY);
+            if (config) {
+                // Esperar un momento para que la página cargue completamente
+                setTimeout(() => {
+                    loadFromGitHub();
+                }, 1000);
             }
         });
     </script>
