@@ -1627,11 +1627,58 @@
       "modality": "Bola 10",
       "date": "2025-12-04",
       "id": 1765822223189
+    },
+    {
+      "player1": "Xisco",
+      "player2": "Tolo",
+      "score1": "6",
+      "score2": "2",
+      "material1": "Lucasi+Revo12.9",
+      "material2": "-",
+      "modality": "Bola 10",
+      "date": "2025-12-15",
+      "id": 1765822393919
+    },
+    {
+      "player1": "Xisco",
+      "player2": "Tolo",
+      "score1": "7",
+      "score2": "2",
+      "material1": "Lucasi+Revo12.9",
+      "material2": "-",
+      "modality": "Bola 10",
+      "date": "2025-12-15",
+      "id": 1765822404131
+    },
+    {
+      "player1": "Xisco",
+      "player2": "Borja",
+      "score1": "7",
+      "score2": "5",
+      "material1": "Lucasi+Revo12.9",
+      "material2": "-",
+      "modality": "Bola 10",
+      "date": "2025-12-15",
+      "id": 1765822416772
+    },
+    {
+      "player1": "Xisco",
+      "player2": "Xisco M",
+      "score1": "7",
+      "score2": "2",
+      "material1": "Lucasi+Revo12.9",
+      "material2": "-",
+      "modality": "Bola 10",
+      "date": "2025-12-15",
+      "id": 1765822428067
     }
   ],
   "players": [
     "Xisco",
-    "Jepy"
+    "Jepy",
+    "Tolo",
+    "Borja",
+    "Xisco M"
   ],
   "materials": [
     "Velasco+Revo12.9",
@@ -1652,10 +1699,10 @@
       "gamesWon": 202
     },
     "bola10": {
-      "matchesPlayed": 119,
-      "matchesWon": 74,
-      "gamesPlayed": 1498,
-      "gamesWon": 816
+      "matchesPlayed": 123,
+      "matchesWon": 78,
+      "gamesPlayed": 1536,
+      "gamesWon": 843
     }
   }
 }
