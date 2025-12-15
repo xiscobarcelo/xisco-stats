@@ -678,6 +678,9 @@
                 <button onclick="resetAllDataFromStats()" class="btn-danger-stats" style="margin-left: 12px;">
                     🗑️ Reiniciar Datos
                 </button>
+                <a href="config-github.html" class="btn-secondary" style="margin-left: 12px; padding: 12px 28px; border-radius: 12px; font-size: 0.95rem; text-decoration: none; display: inline-block;">
+                    🔧 Config GitHub
+                </a>
                 <button onclick="logout()" class="btn-logout" style="margin-left: 12px;">
                     🚪 Cerrar Sesión
                 </button>
@@ -802,9 +805,12 @@
         <div class="main-card history-card">
             <div class="history-header">
                 <h2 class="section-title" style="margin: 0;">Historial de Partidos</h2>
-                <div style="display: flex; gap: 8px;">
+                <div style="display: flex; gap: 8px; flex-wrap: wrap;">
+                    <button class="btn-secondary" style="padding: 10px 20px; border-radius: 8px;" onclick="syncToGitHub()">
+                        ☁️ Subir a Cloud
+                    </button>
                     <button class="btn-secondary" style="padding: 10px 20px; border-radius: 8px;" onclick="syncWithDashboard()">
-                        🔄 Sincronizar
+                        🔄 Sincronizar Local
                     </button>
                     <button class="btn-secondary" style="padding: 10px 20px; border-radius: 8px;" onclick="downloadData()">
                         📥 Descargar
@@ -844,6 +850,122 @@
         // Variables de paginación
         let currentPage = 1;
         const itemsPerPage = 100;
+
+        // Configuración de GitHub (el usuario la configura)
+        const GITHUB_CONFIG_KEY = 'xisco_github_config';
+
+        function getGitHubConfig() {
+            const config = localStorage.getItem(GITHUB_CONFIG_KEY);
+            return config ? JSON.parse(config) : null;
+        }
+
+        function setGitHubConfig(username, repo, token) {
+            const config = { username, repo, token };
+            localStorage.setItem(GITHUB_CONFIG_KEY, JSON.stringify(config));
+        }
+
+        async function syncToGitHub() {
+            let config = getGitHubConfig();
+
+            // Si no hay configuración, pedirla
+            if (!config) {
+                const username = prompt('🔧 Configuración de GitHub\n\n1️⃣ Introduce tu USUARIO de GitHub:');
+                if (!username) return;
+
+                const repo = prompt('2️⃣ Introduce el NOMBRE del repositorio:\n(ejemplo: xisco-stats)');
+                if (!repo) return;
+
+                const token = prompt('3️⃣ Pega tu TOKEN de acceso personal:\n(empieza con ghp_...)');
+                if (!token) return;
+
+                setGitHubConfig(username, repo, token);
+                config = { username, repo, token };
+                
+                alert('✅ Configuración guardada!\nAhora se subirán los datos...');
+            }
+
+            // Mostrar loading
+            const btn = event.target;
+            const originalText = btn.innerHTML;
+            btn.innerHTML = '⏳ Subiendo...';
+            btn.disabled = true;
+
+            try {
+                // Preparar datos
+                const dataToUpload = JSON.stringify(matchesData, null, 2);
+                const encodedContent = btoa(unescape(encodeURIComponent(dataToUpload)));
+
+                // Obtener SHA del archivo actual (necesario para actualizar)
+                const getUrl = `https://api.github.com/repos/${config.username}/${config.repo}/contents/app/data.json`;
+                let sha = null;
+
+                try {
+                    const getResponse = await fetch(getUrl, {
+                        headers: {
+                            'Authorization': `token ${config.token}`,
+                            'Accept': 'application/vnd.github.v3+json'
+                        }
+                    });
+
+                    if (getResponse.ok) {
+                        const fileData = await getResponse.json();
+                        sha = fileData.sha;
+                    }
+                } catch (e) {
+                    console.log('Archivo no existe, se creará uno nuevo');
+                }
+
+                // Subir archivo
+                const putUrl = `https://api.github.com/repos/${config.username}/${config.repo}/contents/app/data.json`;
+                const response = await fetch(putUrl, {
+                    method: 'PUT',
+                    headers: {
+                        'Authorization': `token ${config.token}`,
+                        'Accept': 'application/vnd.github.v3+json',
+                        'Content-Type': 'application/json'
+                    },
+                    body: JSON.stringify({
+                        message: `Update data.json - ${new Date().toLocaleString('es-ES')}`,
+                        content: encodedContent,
+                        sha: sha,
+                        branch: 'main'
+                    })
+                });
+
+                if (response.ok) {
+                    btn.innerHTML = '✅ ¡Subido!';
+                    showSuccess('☁️ Datos sincronizados con GitHub!');
+                    
+                    setTimeout(() => {
+                        btn.innerHTML = originalText;
+                        btn.disabled = false;
+                    }, 2000);
+                } else {
+                    const error = await response.json();
+                    throw new Error(error.message || 'Error al subir');
+                }
+
+            } catch (error) {
+                console.error('Error:', error);
+                btn.innerHTML = originalText;
+                btn.disabled = false;
+                
+                alert(`❌ Error al subir a GitHub:\n\n${error.message}\n\nVerifica:\n• Token correcto\n• Permisos del token (scope: repo)\n• Nombre de repositorio correcto`);
+                
+                // Opción de reconfigurar
+                if (confirm('¿Quieres reconfigurar GitHub?')) {
+                    localStorage.removeItem(GITHUB_CONFIG_KEY);
+                    syncToGitHub();
+                }
+            }
+        }
+
+        function resetGitHubConfig() {
+            if (confirm('¿Eliminar configuración de GitHub?')) {
+                localStorage.removeItem(GITHUB_CONFIG_KEY);
+                alert('✅ Configuración eliminada');
+            }
+        }
 
         // Inicializar
         document.addEventListener('DOMContentLoaded', () => {
