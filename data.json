@@ -1,0 +1,82 @@
+[
+  {
+    "nombre": "Producto A",
+    "ventas": 1250,
+    "precio": 29.99,
+    "categoria": "Electrónica",
+    "stock": 45,
+    "rating": 4.5
+  },
+  {
+    "nombre": "Producto B",
+    "ventas": 890,
+    "precio": 49.99,
+    "categoria": "Ropa",
+    "stock": 120,
+    "rating": 4.2
+  },
+  {
+    "nombre": "Producto C",
+    "ventas": 2100,
+    "precio": 19.99,
+    "categoria": "Electrónica",
+    "stock": 78,
+    "rating": 4.8
+  },
+  {
+    "nombre": "Producto D",
+    "ventas": 650,
+    "precio": 79.99,
+    "categoria": "Hogar",
+    "stock": 30,
+    "rating": 4.0
+  },
+  {
+    "nombre": "Producto E",
+    "ventas": 1850,
+    "precio": 34.99,
+    "categoria": "Ropa",
+    "stock": 95,
+    "rating": 4.6
+  },
+  {
+    "nombre": "Producto F",
+    "ventas": 1400,
+    "precio": 24.99,
+    "categoria": "Electrónica",
+    "stock": 62,
+    "rating": 4.3
+  },
+  {
+    "nombre": "Producto G",
+    "ventas": 980,
+    "precio": 59.99,
+    "categoria": "Hogar",
+    "stock": 41,
+    "rating": 4.1
+  },
+  {
+    "nombre": "Producto H",
+    "ventas": 1720,
+    "precio": 39.99,
+    "categoria": "Ropa",
+    "stock": 88,
+    "rating": 4.7
+  },
+  {
+    "nombre": "Producto I",
+    "ventas": 2300,
+    "precio": 14.99,
+    "categoria": "Electrónica",
+    "stock": 150,
+    "rating": 4.9
+  },
+  {
+    "nombre": "Producto J",
+    "ventas": 540,
+    "precio": 89.99,
+    "categoria": "Hogar",
+    "stock": 25,
+    "rating": 3.9
+  }
+]
