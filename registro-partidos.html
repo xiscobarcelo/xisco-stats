@@ -806,10 +806,10 @@
             <div class="history-header">
                 <h2 class="section-title" style="margin: 0;">Historial de Partidos</h2>
                 <div style="display: flex; gap: 8px; flex-wrap: wrap;">
-                    <button class="btn-secondary" style="padding: 10px 20px; border-radius: 8px;" onclick="syncToGitHub()">
+                    <button class="btn-secondary" style="padding: 10px 20px; border-radius: 8px;" onclick="syncToGitHub(event)">
                         ☁️ Subir a Cloud
                     </button>
-                    <button class="btn-secondary" style="padding: 10px 20px; border-radius: 8px;" onclick="loadFromGitHub()">
+                    <button class="btn-secondary" style="padding: 10px 20px; border-radius: 8px;" onclick="loadFromGitHub(event)">
                         🔽 Descargar de Cloud
                     </button>
                     <button class="btn-secondary" style="padding: 10px 20px; border-radius: 8px;" onclick="syncWithDashboard()">
@@ -867,7 +867,7 @@
             localStorage.setItem(GITHUB_CONFIG_KEY, JSON.stringify(config));
         }
 
-        async function syncToGitHub() {
+        async function syncToGitHub(event) {
             let config = getGitHubConfig();
 
             // Si no hay configuración, pedirla
@@ -888,7 +888,7 @@
             }
 
             // Mostrar loading
-            const btn = event.target;
+            const btn = event?.target || document.querySelector('button');
             const originalText = btn.innerHTML;
             btn.innerHTML = '⏳ Subiendo...';
             btn.disabled = true;
@@ -1010,20 +1010,23 @@
         }
 
         // Cargar datos desde GitHub automáticamente
-        async function loadFromGitHub() {
+        async function loadFromGitHub(event) {
             const config = getGitHubConfig();
             if (!config) {
-                alert('⚠️ Primero configura GitHub en:\n🔧 Config GitHub');
+                if (event) {
+                    alert('⚠️ Primero configura GitHub en:\n🔧 Config GitHub');
+                }
                 return;
             }
 
             // Mostrar loading si es llamada manual
-            let isManualCall = false;
+            let isManualCall = !!(event && event.target);
             let btn = null;
-            if (event && event.target) {
-                isManualCall = true;
+            let originalText = '';
+            
+            if (isManualCall) {
                 btn = event.target;
-                const originalText = btn.innerHTML;
+                originalText = btn.innerHTML;
                 btn.innerHTML = '⏳ Descargando...';
                 btn.disabled = true;
             }
