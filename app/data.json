@@ -1638,24 +1638,37 @@
       "modality": "Bola 8",
       "date": "2025-12-15",
       "id": 1765816234138
+    },
+    {
+      "player1": "Xisco",
+      "player2": "PEPA",
+      "score1": "100",
+      "score2": "0",
+      "material1": "FLOWERS",
+      "material2": "-",
+      "modality": "Bola 8",
+      "date": "2025-12-15",
+      "id": 1765816927225
     }
   ],
   "players": [
     "Xisco",
     "Jepy",
-    "Josie"
+    "Josie",
+    "PEPA"
   ],
   "materials": [
     "Velasco+Revo12.9",
     "Lucasi+Revo12.9",
-    "Bear+Centro"
+    "Bear+Centro",
+    "FLOWERS"
   ],
   "modalityStats": {
     "bola8": {
-      "matchesPlayed": 1,
-      "matchesWon": 1,
-      "gamesPlayed": 19,
-      "gamesWon": 10
+      "matchesPlayed": 2,
+      "matchesWon": 2,
+      "gamesPlayed": 119,
+      "gamesWon": 110
     },
     "bola9": {
       "matchesPlayed": 29,
