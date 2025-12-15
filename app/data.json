@@ -1,7 +1,383 @@
 {
-  "matches": [],
+  "matches": [
+    {
+      "player1": "Xisco",
+      "player2": "Jepy",
+      "score1": "5",
+      "score2": "8",
+      "material1": "Lucasi+Revo12.9",
+      "material2": "-",
+      "modality": "Bola 10",
+      "date": "2023-08-30",
+      "id": 1765815867243
+    },
+    {
+      "player1": "Xisco",
+      "player2": "Jepy",
+      "score1": "8",
+      "score2": "6",
+      "material1": "Lucasi+Revo12.9",
+      "material2": "-",
+      "modality": "Bola 10",
+      "date": "2023-08-30",
+      "id": 1765815867244
+    },
+    {
+      "player1": "Xisco",
+      "player2": "Jepy",
+      "score1": "6",
+      "score2": "8",
+      "material1": "Lucasi+Revo12.9",
+      "material2": "-",
+      "modality": "Bola 10",
+      "date": "2023-09-05",
+      "id": 1765815867245
+    },
+    {
+      "player1": "Xisco",
+      "player2": "Jepy",
+      "score1": "6",
+      "score2": "8",
+      "material1": "Lucasi+Revo12.9",
+      "material2": "-",
+      "modality": "Bola 10",
+      "date": "2023-09-05",
+      "id": 1765815867246
+    },
+    {
+      "player1": "Xisco",
+      "player2": "Jepy",
+      "score1": "8",
+      "score2": "1",
+      "material1": "Lucasi+Revo12.9",
+      "material2": "-",
+      "modality": "Bola 9",
+      "date": "2023-09-05",
+      "id": 1765815867247
+    },
+    {
+      "player1": "Xisco",
+      "player2": "Jepy",
+      "score1": "8",
+      "score2": "4",
+      "material1": "Lucasi+Revo12.9",
+      "material2": "-",
+      "modality": "Bola 10",
+      "date": "2023-09-12",
+      "id": 1765815867248
+    },
+    {
+      "player1": "Xisco",
+      "player2": "Jepy",
+      "score1": "8",
+      "score2": "4",
+      "material1": "Lucasi+Revo12.9",
+      "material2": "-",
+      "modality": "Bola 10",
+      "date": "2023-09-12",
+      "id": 1765815867249
+    },
+    {
+      "player1": "Xisco",
+      "player2": "Jepy",
+      "score1": "4",
+      "score2": "8",
+      "material1": "Lucasi+Revo12.9",
+      "material2": "-",
+      "modality": "Bola 10",
+      "date": "2023-09-26",
+      "id": 1765815867250
+    },
+    {
+      "player1": "Xisco",
+      "player2": "Jepy",
+      "score1": "6",
+      "score2": "8",
+      "material1": "Lucasi+Revo12.9",
+      "material2": "-",
+      "modality": "Bola 10",
+      "date": "2023-09-26",
+      "id": 1765815867251
+    },
+    {
+      "player1": "Xisco",
+      "player2": "Jepy",
+      "score1": "7",
+      "score2": "8",
+      "material1": "Lucasi+Revo12.9",
+      "material2": "-",
+      "modality": "Bola 10",
+      "date": "2023-09-29",
+      "id": 1765815867253
+    },
+    {
+      "player1": "Xisco",
+      "player2": "Jepy",
+      "score1": "8",
+      "score2": "5",
+      "material1": "Lucasi+Revo12.9",
+      "material2": "-",
+      "modality": "Bola 9",
+      "date": "2023-09-29",
+      "id": 1765815867254
+    },
+    {
+      "player1": "Xisco",
+      "player2": "Jepy",
+      "score1": "5",
+      "score2": "8",
+      "material1": "Lucasi+Revo12.9",
+      "material2": "-",
+      "modality": "Bola 10",
+      "date": "2023-09-29",
+      "id": 1765815867255
+    },
+    {
+      "player1": "Xisco",
+      "player2": "Jepy",
+      "score1": "8",
+      "score2": "1",
+      "material1": "Lucasi+Revo12.9",
+      "material2": "-",
+      "modality": "Bola 10",
+      "date": "2023-10-05",
+      "id": 1765815867256
+    },
+    {
+      "player1": "Xisco",
+      "player2": "Jepy",
+      "score1": "3",
+      "score2": "8",
+      "material1": "Lucasi+Revo12.9",
+      "material2": "-",
+      "modality": "Bola 10",
+      "date": "2023-10-05",
+      "id": 1765815867257
+    },
+    {
+      "player1": "Xisco",
+      "player2": "Jepy",
+      "score1": "8",
+      "score2": "2",
+      "material1": "Lucasi+Revo12.9",
+      "material2": "-",
+      "modality": "Bola 9",
+      "date": "2023-10-05",
+      "id": 1765815867258
+    },
+    {
+      "player1": "Xisco",
+      "player2": "Jepy",
+      "score1": "8",
+      "score2": "3",
+      "material1": "Lucasi+Revo12.9",
+      "material2": "-",
+      "modality": "Bola 10",
+      "date": "2023-10-12",
+      "id": 1765815867259
+    },
+    {
+      "player1": "Xisco",
+      "player2": "Jepy",
+      "score1": "5",
+      "score2": "8",
+      "material1": "Lucasi+Revo12.9",
+      "material2": "-",
+      "modality": "Bola 10",
+      "date": "2023-10-12",
+      "id": 1765815867260
+    },
+    {
+      "player1": "Xisco",
+      "player2": "Jepy",
+      "score1": "4",
+      "score2": "8",
+      "material1": "Lucasi+Revo12.9",
+      "material2": "-",
+      "modality": "Bola 10",
+      "date": "2023-10-12",
+      "id": 1765815867261
+    },
+    {
+      "player1": "Xisco",
+      "player2": "Jepy",
+      "score1": "3",
+      "score2": "8",
+      "material1": "Lucasi+Revo12.9",
+      "material2": "-",
+      "modality": "Bola 10",
+      "date": "2023-10-19",
+      "id": 1765815867262
+    },
+    {
+      "player1": "Xisco",
+      "player2": "Jepy",
+      "score1": "8",
+      "score2": "7",
+      "material1": "Lucasi+Revo12.9",
+      "material2": "-",
+      "modality": "Bola 10",
+      "date": "2023-10-19",
+      "id": 1765815867263
+    },
+    {
+      "player1": "Xisco",
+      "player2": "Jepy",
+      "score1": "5",
+      "score2": "8",
+      "material1": "Lucasi+Revo12.9",
+      "material2": "-",
+      "modality": "Bola 9",
+      "date": "2023-10-19",
+      "id": 1765815867264
+    },
+    {
+      "player1": "Xisco",
+      "player2": "Jepy",
+      "score1": "2",
+      "score2": "8",
+      "material1": "Lucasi+Revo12.9",
+      "material2": "-",
+      "modality": "Bola 10",
+      "date": "2023-10-26",
+      "id": 1765815867265
+    },
+    {
+      "player1": "Xisco",
+      "player2": "Jepy",
+      "score1": "8",
+      "score2": "3",
+      "material1": "Lucasi+Revo12.9",
+      "material2": "-",
+      "modality": "Bola 10",
+      "date": "2023-10-26",
+      "id": 1765815867266
+    },
+    {
+      "player1": "Xisco",
+      "player2": "Jepy",
+      "score1": "8",
+      "score2": "7",
+      "material1": "Lucasi+Revo12.9",
+      "material2": "-",
+      "modality": "Bola 9",
+      "date": "2023-10-26",
+      "id": 1765815867267
+    },
+    {
+      "player1": "Xisco",
+      "player2": "Jepy",
+      "score1": "8",
+      "score2": "6",
+      "material1": "Lucasi+Revo12.9",
+      "material2": "-",
+      "modality": "Bola 10",
+      "date": "2023-11-02",
+      "id": 1765815867268
+    },
+    {
+      "player1": "Xisco",
+      "player2": "Jepy",
+      "score1": "8",
+      "score2": "3",
+      "material1": "Lucasi+Revo12.9",
+      "material2": "-",
+      "modality": "Bola 10",
+      "date": "2023-11-02",
+      "id": 1765815867269
+    },
+    {
+      "player1": "Xisco",
+      "player2": "Jepy",
+      "score1": "8",
+      "score2": "5",
+      "material1": "Lucasi+Revo12.9",
+      "material2": "-",
+      "modality": "Bola 9",
+      "date": "2023-11-02",
+      "id": 1765815867270
+    },
+    {
+      "player1": "Xisco",
+      "player2": "Jepy",
+      "score1": "6",
+      "score2": "8",
+      "material1": "Lucasi+Revo12.9",
+      "material2": "-",
+      "modality": "Bola 10",
+      "date": "2023-11-09",
+      "id": 1765815867271
+    },
+    {
+      "player1": "Xisco",
+      "player2": "Jepy",
+      "score1": "6",
+      "score2": "8",
+      "material1": "Lucasi+Revo12.9",
+      "material2": "-",
+      "modality": "Bola 10",
+      "date": "2023-11-09",
+      "id": 1765815867272
+    },
+    {
+      "player1": "Xisco",
+      "player2": "Jepy",
+      "score1": "4",
+      "score2": "8",
+      "material1": "Lucasi+Revo12.9",
+      "material2": "-",
+      "modality": "Bola 10",
+      "date": "2023-11-17",
+      "id": 1765815867274
+    },
+    {
+      "player1": "Xisco",
+      "player2": "Jepy",
+      "score1": "8",
+      "score2": "5",
+      "material1": "Lucasi+Revo12.9",
+      "material2": "-",
+      "modality": "Bola 10",
+      "date": "2023-11-17",
+      "id": 1765815867275
+    },
+    {
+      "player1": "Xisco",
+      "player2": "Jepy",
+      "score1": "8",
+      "score2": "6",
+      "material1": "Lucasi+Revo12.9",
+      "material2": "-",
+      "modality": "Bola 9",
+      "date": "2023-11-17",
+      "id": 1765815867276
+    },
+    {
+      "player1": "Xisco",
+      "player2": "Jepy",
+      "score1": "8",
+      "score2": "4",
+      "material1": "Lucasi+Revo12.9",
+      "material2": "-",
+      "modality": "Bola 10",
+      "date": "2023-12-21",
+      "id": 1765815867277
+    },
+    {
+      "player1": "Xisco",
+      "player2": "Jepy",
+      "score1": "8",
+      "score2": "7",
+      "material1": "Lucasi+Revo12.9",
+      "material2": "-",
+      "modality": "Bola 10",
+      "date": "2023-12-21",
+      "id": 1765815867279
+    }
+  ],
   "players": [
-    "Xisco"
+    "Xisco",
+    "Jepy"
   ],
   "materials": [
     "Velasco+Revo12.9",
@@ -16,16 +392,16 @@
       "gamesWon": 0
     },
     "bola9": {
-      "matchesPlayed": 0,
-      "matchesWon": 0,
-      "gamesPlayed": 0,
-      "gamesWon": 0
+      "matchesPlayed": 7,
+      "matchesWon": 6,
+      "gamesPlayed": 87,
+      "gamesWon": 53
     },
     "bola10": {
-      "matchesPlayed": 0,
-      "matchesWon": 0,
-      "gamesPlayed": 0,
-      "gamesWon": 0
+      "matchesPlayed": 27,
+      "matchesWon": 12,
+      "gamesPlayed": 341,
+      "gamesWon": 168
     }
   }
 }
