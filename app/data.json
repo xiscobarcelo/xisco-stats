@@ -1650,7 +1650,7 @@
       "date": "2025-12-15",
       "id": 1765822404131
     },
-     {
+    {
       "player1": "Xisco",
       "player2": "Tolo",
       "score1": "70",
@@ -1671,6 +1671,17 @@
       "modality": "Bola 10",
       "date": "2025-12-15",
       "id": 1765822416772
+    },
+    {
+      "player1": "Xisco",
+      "player2": "PEPE",
+      "score1": "3",
+      "score2": "1",
+      "material1": "Velasco+Revo12.9",
+      "material2": "-",
+      "modality": "Bola 8",
+      "date": "2025-12-15",
+      "id": 1765837724885
     }
   ],
   "players": [
@@ -1678,7 +1689,8 @@
     "Jepy",
     "Tolo",
     "Borja",
-    "Xisco M"
+    "Xisco M",
+    "PEPE"
   ],
   "materials": [
     "Velasco+Revo12.9",
@@ -1687,10 +1699,10 @@
   ],
   "modalityStats": {
     "bola8": {
-      "matchesPlayed": 0,
-      "matchesWon": 0,
-      "gamesPlayed": 0,
-      "gamesWon": 0
+      "matchesPlayed": 1,
+      "matchesWon": 1,
+      "gamesPlayed": 4,
+      "gamesWon": 3
     },
     "bola9": {
       "matchesPlayed": 29,
