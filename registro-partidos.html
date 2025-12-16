@@ -3,23 +3,17 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Pool Tracker</title>
+    <title>Registro de Partidos - Xisco</title>
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-			 <link rel="icon" type="image/svg" href="favicon.svg">
-
     <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
     <script src="https://cdnjs.cloudflare.com/ajax/libs/xlsx/0.18.5/xlsx.full.min.js"></script>
-    
-	
-      <script>
+    <script>
         // Verificar sesión activa
         if (!sessionStorage.getItem('xisco_session_active')) {
             window.location.href = 'index.html';
         }
     </script>
-	
-	
     <style>
         * {
             margin: 0;
@@ -28,8 +22,1214 @@
         }
 
         body {
+            font-family: -apple-system, BlinkMacSystemFont, 'SF Pro Display', 'Helvetica Neue', sans-serif;
+            background: #f5f5f7;
+            color: #1d1d1f;
+            min-height: 100vh;
+            padding: 0;
+            -webkit-font-smoothing: antialiased;
+            -moz-osx-font-smoothing: grayscale;
+        }
+
+        .container {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 40px 24px;
+        }
+
+        header {
+            text-align: center;
+            margin-bottom: 64px;
+            padding: 48px 0;
+        }
+
+        .system-title {
+            font-size: 3.5rem;
+            font-weight: 600;
+            color: #1d1d1f;
+            margin-bottom: 8px;
+            letter-spacing: -0.02em;
+        }
+
+        .system-subtitle {
+            font-size: 1.25rem;
+            color: #86868b;
+            font-weight: 400;
+            margin-bottom: 32px;
+        }
+
+        .header-actions {
+            display: flex;
+            gap: 12px;
+            justify-content: center;
+            flex-wrap: wrap;
+        }
+
+        .btn {
+            padding: 12px 24px;
+            font-size: 0.875rem;
+            font-weight: 500;
+            border-radius: 980px;
+            cursor: pointer;
+            transition: all 0.2s ease;
+            border: none;
+            text-decoration: none;
+            display: inline-flex;
+            align-items: center;
+            gap: 6px;
+        }
+
+        .btn-primary {
+            background: #1d1d1f;
+            color: #ffffff;
+        }
+
+        .btn-primary:hover {
+            background: #424245;
+        }
+
+        .btn-secondary {
+            background: transparent;
+            color: #1d1d1f;
+            border: 1px solid #d2d2d7;
+        }
+
+        .btn-secondary:hover {
+            background: #f5f5f7;
+            border-color: #86868b;
+        }
+
+        .btn-danger {
+            background: transparent;
+            color: #ff3b30;
+            border: 1px solid #ff3b30;
+        }
+
+        .btn-danger:hover {
+            background: rgba(255, 59, 48, 0.1);
+        }
+
+        .main-card {
+            background: #ffffff;
+            border-radius: 18px;
+            box-shadow: 0 4px 16px rgba(0, 0, 0, 0.08);
+            margin-bottom: 24px;
+            overflow: hidden;
+        }
+
+        .card-header {
+            padding: 32px 32px 24px;
+            border-bottom: 1px solid #f5f5f7;
+        }
+
+        .card-content {
+            padding: 32px;
+        }
+
+        .section-title {
+            font-size: 1.75rem;
+            font-weight: 600;
+            color: #1d1d1f;
+            margin-bottom: 8px;
+            letter-spacing: -0.01em;
+        }
+
+        .section-description {
+            font-size: 0.9375rem;
+            color: #86868b;
+            line-height: 1.5;
+        }
+
+        .form-group {
+            margin-bottom: 24px;
+        }
+
+        .form-label {
+            display: block;
+            font-size: 0.8125rem;
+            font-weight: 500;
+            color: #1d1d1f;
+            margin-bottom: 8px;
+        }
+
+        .form-input,
+        .form-select {
+            width: 100%;
+            padding: 12px 16px;
+            background: #f5f5f7;
+            border: 1px solid transparent;
+            border-radius: 10px;
+            color: #1d1d1f;
+            font-size: 0.9375rem;
+            font-family: inherit;
+            transition: all 0.2s ease;
+        }
+
+        .form-input:focus,
+        .form-select:focus {
+            outline: none;
+            background: #ffffff;
+            border-color: #86868b;
+        }
+
+        .form-input::placeholder {
+            color: #86868b;
+        }
+
+        .form-row {
+            display: grid;
+            grid-template-columns: repeat(3, 1fr);
+            gap: 16px;
+        }
+
+        .material-section {
+            margin-top: 32px;
+        }
+
+        .material-chips {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 8px;
+            margin-top: 12px;
+        }
+
+        .material-chip {
+            padding: 8px 16px;
+            background: #f5f5f7;
+            border: 1px solid transparent;
+            border-radius: 980px;
+            color: #1d1d1f;
+            font-size: 0.875rem;
+            font-weight: 500;
+            cursor: pointer;
+            transition: all 0.2s ease;
+        }
+
+        .material-chip:hover {
+            background: #e8e8ed;
+        }
+
+        .material-chip.selected {
+            background: #1d1d1f;
+            color: #ffffff;
+        }
+
+        .add-material-container {
+            display: flex;
+            gap: 8px;
+            margin-top: 16px;
+        }
+
+        .add-material-container input {
+            flex: 1;
+        }
+
+        .btn-submit {
+            width: 100%;
+            padding: 16px;
+            background: #1d1d1f;
+            color: #ffffff;
+            border: none;
+            border-radius: 12px;
+            font-size: 1rem;
+            font-weight: 600;
+            cursor: pointer;
+            transition: all 0.2s ease;
+            margin-top: 24px;
+        }
+
+        .btn-submit:hover {
+            background: #424245;
+            transform: translateY(-1px);
+        }
+
+        .btn-submit:active {
+            transform: translateY(0);
+        }
+
+        .history-header {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            padding: 32px;
+            border-bottom: 1px solid #f5f5f7;
+        }
+
+        .history-actions {
+            display: flex;
+            gap: 8px;
+            flex-wrap: wrap;
+        }
+
+        .btn-icon {
+            padding: 8px 16px;
+            background: #f5f5f7;
+            border: 1px solid transparent;
+            border-radius: 980px;
+            color: #1d1d1f;
+            font-size: 0.8125rem;
+            font-weight: 500;
+            cursor: pointer;
+            transition: all 0.2s ease;
+        }
+
+        .btn-icon:hover {
+            background: #e8e8ed;
+        }
+
+        .match-list {
+            padding: 16px 32px 32px;
+        }
+
+        .match-item {
+            display: grid;
+            grid-template-columns: 120px 1fr auto;
+            gap: 24px;
+            align-items: center;
+            padding: 20px 0;
+            border-bottom: 1px solid #f5f5f7;
+            transition: all 0.2s ease;
+        }
+
+        .match-item:hover {
+            padding-left: 12px;
+        }
+
+        .match-item:last-child {
+            border-bottom: none;
+        }
+
+        .match-date {
+            font-size: 0.8125rem;
+            color: #86868b;
+            font-weight: 500;
+        }
+
+        .match-info {
+            display: flex;
+            flex-direction: column;
+            gap: 4px;
+        }
+
+        .match-players {
+            font-size: 1rem;
+            font-weight: 600;
+            color: #1d1d1f;
+        }
+
+        .match-score {
+            font-size: 1.5rem;
+            font-weight: 700;
+            color: #1d1d1f;
+            margin: 4px 0;
+        }
+
+        .match-details {
+            font-size: 0.875rem;
+            color: #86868b;
+        }
+
+        .match-actions {
+            display: flex;
+            gap: 8px;
+        }
+
+        .btn-edit,
+        .btn-delete {
+            padding: 6px 12px;
+            background: #f5f5f7;
+            border: 1px solid transparent;
+            border-radius: 980px;
+            color: #1d1d1f;
+            font-size: 0.8125rem;
+            font-weight: 500;
+            cursor: pointer;
+            transition: all 0.2s ease;
+        }
+
+        .btn-edit:hover {
+            background: #e8e8ed;
+        }
+
+        .btn-delete {
+            color: #ff3b30;
+        }
+
+        .btn-delete:hover {
+            background: rgba(255, 59, 48, 0.1);
+        }
+
+        .modality-stats-section {
+            margin-top: 32px;
+        }
+
+        .modality-stats-grid {
+            display: grid;
+            grid-template-columns: repeat(3, 1fr);
+            gap: 16px;
+            margin-top: 16px;
+        }
+
+        .modality-card {
+            background: #f5f5f7;
+            border-radius: 12px;
+            padding: 24px;
+            transition: all 0.2s ease;
+        }
+
+        .modality-card:hover {
+            background: #e8e8ed;
+            transform: translateY(-2px);
+        }
+
+        .modality-name {
+            font-size: 1.125rem;
+            font-weight: 600;
+            color: #1d1d1f;
+            margin-bottom: 20px;
+        }
+
+        .stat-row {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            margin-bottom: 12px;
+            padding-bottom: 12px;
+            border-bottom: 1px solid #d2d2d7;
+        }
+
+        .stat-row:last-child {
+            border-bottom: none;
+            margin-bottom: 0;
+            padding-bottom: 0;
+        }
+
+        .stat-label {
+            font-size: 0.875rem;
+            color: #86868b;
+        }
+
+        .stat-value {
+            font-size: 1.25rem;
+            font-weight: 600;
+            color: #1d1d1f;
+        }
+
+        .stat-input {
+            background: transparent;
+            border: none;
+            text-align: right;
+            font-size: 1.25rem;
+            font-weight: 600;
+            color: #1d1d1f;
+            width: 80px;
+            padding: 4px 8px;
+            border-radius: 6px;
+        }
+
+        .stat-input:focus {
+            outline: none;
+            background: #ffffff;
+        }
+
+        .stat-input:disabled {
+            color: #86868b;
+        }
+
+        .edit-mode-toggle {
+            display: flex;
+            justify-content: flex-end;
+            gap: 8px;
+            margin-bottom: 16px;
+        }
+
+        .success-message {
+            position: fixed;
+            top: 24px;
+            right: 24px;
+            background: #1d1d1f;
+            color: #ffffff;
+            padding: 16px 24px;
+            border-radius: 12px;
+            font-size: 0.9375rem;
+            font-weight: 500;
+            box-shadow: 0 8px 24px rgba(0, 0, 0, 0.2);
+            animation: slideIn 0.3s ease;
+            z-index: 1000;
+        }
+
+        @keyframes slideIn {
+            from {
+                transform: translateX(400px);
+                opacity: 0;
+            }
+            to {
+                transform: translateX(0);
+                opacity: 1;
+            }
+        }
+
+        .empty-state {
+            text-align: center;
+            padding: 64px 32px;
+            color: #86868b;
+            font-size: 1rem;
+        }
+
+        .pagination-container {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            padding: 24px 32px;
+            border-top: 1px solid #f5f5f7;
+        }
+
+        .pagination-info {
+            font-size: 0.875rem;
+            color: #86868b;
+        }
+
+        .pagination-buttons {
+            display: flex;
+            gap: 8px;
+            align-items: center;
+        }
+
+        .pagination-btn {
+            padding: 8px 16px;
+            background: #f5f5f7;
+            border: 1px solid transparent;
+            border-radius: 980px;
+            color: #1d1d1f;
+            font-size: 0.8125rem;
+            font-weight: 500;
+            cursor: pointer;
+            transition: all 0.2s ease;
+        }
+
+        .pagination-btn:hover:not(:disabled) {
+            background: #e8e8ed;
+        }
+
+        .pagination-btn:disabled {
+            opacity: 0.3;
+            cursor: not-allowed;
+        }
+
+        .page-numbers {
+            display: flex;
+            gap: 4px;
+        }
+
+        .page-number {
+            width: 36px;
+            height: 36px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            background: #f5f5f7;
+            border: 1px solid transparent;
+            border-radius: 8px;
+            color: #1d1d1f;
+            font-size: 0.875rem;
+            font-weight: 500;
+            cursor: pointer;
+            transition: all 0.2s ease;
+        }
+
+        .page-number:hover:not(.ellipsis) {
+            background: #e8e8ed;
+        }
+
+        .page-number.active {
+            background: #1d1d1f;
+            color: #ffffff;
+        }
+
+        .page-number.ellipsis {
+            cursor: default;
+            background: transparent;
+        }
+
+        .page-number.ellipsis:hover {
+            background: transparent;
+        }
+
+        .info-box {
+            background: #f5f5f7;
+            border-radius: 12px;
+            padding: 20px;
+            margin: 24px 0;
+        }
+
+        .info-box-title {
+            font-size: 0.9375rem;
+            font-weight: 600;
+            color: #1d1d1f;
+            margin-bottom: 12px;
+        }
+
+        .info-box-list {
+            list-style: none;
+            padding: 0;
+        }
+
+        .info-box-list li {
+            padding: 8px 0;
+            color: #86868b;
+            font-size: 0.875rem;
+            line-height: 1.5;
+        }
+
+        .info-box-list li strong {
+            color: #1d1d1f;
+            font-weight: 600;
+        }
+
+        @media (max-width: 768px) {
+            .container {
+                padding: 24px 16px;
+            }
+
+            .system-title {
+                font-size: 2.5rem;
+            }
+
+            .form-row {
+                grid-template-columns: 1fr;
+            }
+
+            .modality-stats-grid {
+                grid-template-columns: 1fr;
+            }
+
+            .match-item {
+                grid-template-columns: 1fr;
+                gap: 12px;
+            }
+
+            .history-header {
+                flex-direction: column;
+                align-items: flex-start;
+                gap: 16px;
+            }
+
+            .history-actions {
+                width: 100%;
+            }
+
+            .btn-icon {
+                flex: 1;
+                justify-content: center;
+            }
+        }
+    </style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: -apple-system, BlinkMacSystemFont, 'SF Pro Display', 'Segoe UI', sans-serif;
+            background: #000000;
+            color: #ffffff;
+            min-height: 100vh;
+            padding: 0;
+            -webkit-font-smoothing: antialiased;
+            line-height: 1.5;
+        }
+
+        .container {
+            max-width: 1400px;
+            margin: 0 auto;
+            padding: 60px 40px;
+        }
+
+        header {
+            text-align: center;
+            margin-bottom: 80px;
+            position: relative;
+        }
+
+        .system-title {
+            font-size: 4rem;
+            font-weight: 800;
+            letter-spacing: -0.04em;
+            background: linear-gradient(135deg, #0000ff 0%, #00ffff 100%);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            background-clip: text;
+            margin-bottom: 16px;
+            text-transform: uppercase;
+        }
+
+        .system-subtitle {
+            font-size: 1.2rem;
+            color: #666666;
+            font-weight: 400;
+            letter-spacing: 0.05em;
+        }
+
+        .nav-button, .btn-logout, .btn-danger-stats {
+            display: inline-block;
+            padding: 16px 32px;
+            background: #0000ff;
+            color: #ffffff;
+            text-decoration: none;
+            border-radius: 0;
+            font-weight: 700;
+            font-size: 0.9rem;
+            cursor: pointer;
+            transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+            border: 2px solid #0000ff;
+            text-transform: uppercase;
+            letter-spacing: 0.1em;
+            position: relative;
+            overflow: hidden;
+        }
+
+        .nav-button::before, .btn-logout::before, .btn-danger-stats::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: -100%;
+            width: 100%;
+            height: 100%;
+            background: #ffffff;
+            transition: left 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+            z-index: 0;
+        }
+
+        .nav-button:hover::before, .btn-logout:hover::before {
+            left: 0;
+        }
+
+        .nav-button:hover, .btn-logout:hover {
+            color: #0000ff;
+        }
+
+        .nav-button span, .btn-logout span {
+            position: relative;
+            z-index: 1;
+        }
+
+        .btn-danger-stats {
+            background: transparent;
+            border-color: #ff0000;
+            color: #ff0000;
+        }
+
+        .btn-danger-stats::before {
+            background: #ff0000;
+        }
+
+        .btn-danger-stats:hover {
+            color: #ffffff;
+        }
+
+        .main-card {
+            background: #0a0a0a;
+            border: 1px solid #1a1a1a;
+            margin-bottom: 60px;
+            position: relative;
+            overflow: hidden;
+        }
+
+        .main-card::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            height: 4px;
+            background: linear-gradient(90deg, #0000ff, #00ffff);
+        }
+
+        .section-title {
+            font-size: 2rem;
+            font-weight: 800;
+            color: #ffffff;
+            margin-bottom: 8px;
+            letter-spacing: -0.02em;
+            text-transform: uppercase;
+        }
+
+        .section-description {
+            font-size: 0.95rem;
+            color: #666666;
+            margin-bottom: 40px;
+            letter-spacing: 0.03em;
+        }
+
+        .card-content {
+            padding: 60px;
+        }
+
+        .form-group {
+            margin-bottom: 32px;
+        }
+
+        .form-label {
+            display: block;
+            font-size: 0.75rem;
+            font-weight: 700;
+            color: #666666;
+            margin-bottom: 12px;
+            text-transform: uppercase;
+            letter-spacing: 0.15em;
+        }
+
+        .form-input, .form-select {
+            width: 100%;
+            padding: 18px 20px;
+            background: #000000;
+            border: 2px solid #1a1a1a;
+            color: #ffffff;
+            font-size: 1rem;
+            font-weight: 500;
+            border-radius: 0;
+            transition: all 0.3s;
+            font-family: -apple-system, BlinkMacSystemFont, 'SF Pro Display', sans-serif;
+        }
+
+        .form-input:focus, .form-select:focus {
+            outline: none;
+            border-color: #0000ff;
+            background: #000000;
+        }
+
+        .form-input::placeholder {
+            color: #333333;
+        }
+
+        .form-row {
+            display: grid;
+            grid-template-columns: 2fr 1fr 1fr;
+            gap: 20px;
+        }
+
+        .material-chips {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 12px;
+            margin-top: 16px;
+        }
+
+        .material-chip {
+            padding: 12px 24px;
+            background: #0a0a0a;
+            border: 2px solid #1a1a1a;
+            color: #666666;
+            cursor: pointer;
+            font-size: 0.85rem;
+            font-weight: 700;
+            transition: all 0.2s;
+            text-transform: uppercase;
+            letter-spacing: 0.1em;
+        }
+
+        .material-chip:hover {
+            border-color: #0000ff;
+            color: #ffffff;
+        }
+
+        .material-chip.selected {
+            background: #0000ff;
+            border-color: #0000ff;
+            color: #ffffff;
+        }
+
+        .btn-primary {
+            width: 100%;
+            padding: 24px;
+            background: #0000ff;
+            color: #ffffff;
+            border: none;
+            font-size: 1rem;
+            font-weight: 800;
+            cursor: pointer;
+            transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+            text-transform: uppercase;
+            letter-spacing: 0.15em;
+            position: relative;
+            overflow: hidden;
+        }
+
+        .btn-primary::before {
+            content: '';
+            position: absolute;
+            top: 50%;
+            left: 50%;
+            width: 0;
+            height: 0;
+            background: #ffffff;
+            border-radius: 50%;
+            transform: translate(-50%, -50%);
+            transition: width 0.6s, height 0.6s;
+        }
+
+        .btn-primary:hover::before {
+            width: 500px;
+            height: 500px;
+        }
+
+        .btn-primary:hover {
+            color: #0000ff;
+        }
+
+        .btn-primary span {
+            position: relative;
+            z-index: 1;
+        }
+
+        .btn-secondary {
+            padding: 14px 24px;
+            background: transparent;
+            border: 2px solid #1a1a1a;
+            color: #666666;
+            font-size: 0.85rem;
+            font-weight: 700;
+            cursor: pointer;
+            transition: all 0.2s;
+            text-transform: uppercase;
+            letter-spacing: 0.1em;
+        }
+
+        .btn-secondary:hover {
+            border-color: #0000ff;
+            color: #0000ff;
+        }
+
+        .btn-danger {
+            background: transparent;
+            border: 2px solid #1a1a1a;
+            color: #ff0000;
+        }
+
+        .btn-danger:hover {
+            border-color: #ff0000;
+            background: #ff0000;
+            color: #000000;
+        }
+
+        .history-header {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            padding: 40px 60px;
+            border-bottom: 1px solid #1a1a1a;
+        }
+
+        .match-list {
+            padding: 40px 60px;
+        }
+
+        .match-item {
+            display: grid;
+            grid-template-columns: 140px 1fr auto;
+            gap: 30px;
+            align-items: center;
+            padding: 30px 0;
+            border-bottom: 1px solid #1a1a1a;
+            transition: all 0.3s;
+        }
+
+        .match-item:hover {
+            padding-left: 20px;
+            border-left: 4px solid #0000ff;
+        }
+
+        .match-date {
+            font-size: 0.75rem;
+            color: #666666;
+            font-weight: 700;
+            text-transform: uppercase;
+            letter-spacing: 0.1em;
+        }
+
+        .match-info {
+            display: flex;
+            flex-direction: column;
+            gap: 8px;
+        }
+
+        .match-players {
+            font-size: 1.1rem;
+            font-weight: 700;
+            letter-spacing: -0.01em;
+        }
+
+        .match-score {
+            font-size: 1.8rem;
+            font-weight: 900;
+            color: #0000ff;
+            letter-spacing: 0.05em;
+        }
+
+        .match-details {
+            font-size: 0.85rem;
+            color: #666666;
+            text-transform: uppercase;
+            letter-spacing: 0.1em;
+        }
+
+        .btn-edit, .btn-delete {
+            padding: 10px 20px;
+            background: transparent;
+            border: 2px solid #1a1a1a;
+            color: #666666;
+            cursor: pointer;
+            font-size: 0.8rem;
+            font-weight: 700;
+            transition: all 0.2s;
+            text-transform: uppercase;
+            letter-spacing: 0.1em;
+        }
+
+        .btn-edit:hover {
+            border-color: #0000ff;
+            color: #0000ff;
+        }
+
+        .btn-delete:hover {
+            border-color: #ff0000;
+            color: #ff0000;
+        }
+
+        .modality-stats-grid {
+            display: grid;
+            grid-template-columns: repeat(3, 1fr);
+            gap: 1px;
+            background: #1a1a1a;
+            margin-top: 40px;
+        }
+
+        .modality-card {
+            background: #0a0a0a;
+            padding: 40px;
+            position: relative;
+            overflow: hidden;
+        }
+
+        .modality-card::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 4px;
+            background: #0000ff;
+            transform: scaleX(0);
+            transform-origin: left;
+            transition: transform 0.3s;
+        }
+
+        .modality-card:hover::before {
+            transform: scaleX(1);
+        }
+
+        .modality-name {
+            font-size: 1.5rem;
+            font-weight: 900;
+            color: #0000ff;
+            margin-bottom: 30px;
+            text-transform: uppercase;
+            letter-spacing: 0.05em;
+        }
+
+        .stat-input-row {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            margin-bottom: 20px;
+            padding: 12px 0;
+            border-bottom: 1px solid #1a1a1a;
+        }
+
+        .stat-input-label {
+            font-size: 0.75rem;
+            color: #666666;
+            font-weight: 700;
+            text-transform: uppercase;
+            letter-spacing: 0.1em;
+        }
+
+        .stat-input-value {
+            font-size: 1.5rem;
+            font-weight: 900;
+            color: #ffffff;
+            background: transparent;
+            border: none;
+            width: 100px;
+            text-align: right;
+            font-family: 'SF Mono', Monaco, monospace;
+        }
+
+        .stat-input-value:disabled {
+            color: #0000ff;
+        }
+
+        .success-message {
+            position: fixed;
+            top: 40px;
+            right: 40px;
+            background: #0000ff;
+            color: #ffffff;
+            padding: 24px 32px;
+            font-weight: 700;
+            z-index: 1000;
+            animation: slideIn 0.3s ease;
+            text-transform: uppercase;
+            letter-spacing: 0.1em;
+            font-size: 0.85rem;
+        }
+
+        @keyframes slideIn {
+            from {
+                transform: translateX(400px);
+                opacity: 0;
+            }
+            to {
+                transform: translateX(0);
+                opacity: 1;
+            }
+        }
+
+        .empty-state {
+            text-align: center;
+            padding: 80px 40px;
+            color: #333333;
+            font-size: 1.1rem;
+            font-weight: 700;
+            text-transform: uppercase;
+            letter-spacing: 0.1em;
+        }
+
+        .pagination-container {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            padding: 30px 60px;
+            background: #0a0a0a;
+            border-top: 1px solid #1a1a1a;
+            border-bottom: 1px solid #1a1a1a;
+            margin: 40px 0;
+        }
+
+        .pagination-info {
+            color: #666666;
+            font-size: 0.85rem;
+            font-weight: 700;
+            text-transform: uppercase;
+            letter-spacing: 0.1em;
+        }
+
+        .pagination-buttons {
+            display: flex;
+            gap: 8px;
+        }
+
+        .pagination-btn {
+            padding: 12px 20px;
+            background: transparent;
+            border: 2px solid #1a1a1a;
+            color: #666666;
+            font-size: 0.75rem;
+            font-weight: 700;
+            cursor: pointer;
+            transition: all 0.2s;
+            text-transform: uppercase;
+            letter-spacing: 0.1em;
+        }
+
+        .pagination-btn:hover:not(:disabled) {
+            border-color: #0000ff;
+            color: #0000ff;
+        }
+
+        .pagination-btn:disabled {
+            opacity: 0.3;
+            cursor: not-allowed;
+        }
+
+        .page-numbers {
+            display: flex;
+            gap: 4px;
+        }
+
+        .page-number {
+            width: 44px;
+            height: 44px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            background: transparent;
+            border: 2px solid #1a1a1a;
+            color: #666666;
+            font-size: 0.85rem;
+            font-weight: 900;
+            cursor: pointer;
+            transition: all 0.2s;
+        }
+
+        .page-number:hover:not(.ellipsis) {
+            border-color: #0000ff;
+            color: #0000ff;
+        }
+
+        .page-number.active {
+            background: #0000ff;
+            color: #ffffff;
+            border-color: #0000ff;
+        }
+
+        .page-number.ellipsis {
+            cursor: default;
+            border: none;
+        }
+
+        @media (max-width: 768px) {
+            .container {
+                padding: 40px 20px;
+            }
+
+            .system-title {
+                font-size: 2.5rem;
+            }
+
+            .card-content {
+                padding: 30px 20px;
+            }
+
+            .form-row {
+                grid-template-columns: 1fr;
+            }
+
+            .modality-stats-grid {
+                grid-template-columns: 1fr;
+            }
+
+            .match-item {
+                grid-template-columns: 1fr;
+                gap: 15px;
+            }
+
+            .history-header {
+                flex-direction: column;
+                gap: 20px;
+            }
+        }
+    </style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
             font-family: -apple-system, BlinkMacSystemFont, 'Inter', 'Segoe UI', sans-serif;
-            background: #f3f3f3;
+            background: linear-gradient(135deg, #f5f7fa 0%, #e8ecf1 100%);
             min-height: 100vh;
             color: #1d1d1f;
             padding: 20px;
@@ -56,10 +1256,6 @@
             margin-bottom: 8px;
         }
 
-		#formTitle{
-	            font-size: 2rem;
-
-		}
         .subtitle {
             font-size: 1rem;
             color: #86868b;
@@ -81,7 +1277,7 @@
         .form-section {
             margin-bottom: 32px;
         }
-		
+
         .section-title {
             font-size: 1.25rem;
             font-weight: 600;
@@ -202,7 +1398,7 @@
         }
 
         .add-material-input {
-            display: grid;
+            display: flex;
             gap: 8px;
             margin-top: 12px;
         }
@@ -247,7 +1443,7 @@
         }
 
         .btn-primary {
-            background: linear-gradient(135deg, #0000ff, #0000ff);
+            background: linear-gradient(135deg, #007aff, #5856d6);
             color: white;
             box-shadow: 0 4px 12px rgba(0, 122, 255, 0.3);
         }
@@ -262,7 +1458,6 @@
             backdrop-filter: blur(20px);
             color: #007aff;
             border: 1px solid rgba(0, 122, 255, 0.3);
-	
         }
 
         .btn-secondary:hover {
@@ -299,9 +1494,9 @@
         }
 
         .match-item {
-            background: #fff;
-            border-bottom: 1px solid #CCC;
-            border-radius: 0px;
+            background: rgba(0, 122, 255, 0.03);
+            border: 1px solid rgba(0, 122, 255, 0.1);
+            border-radius: 12px;
             padding: 16px;
             display: grid;
             grid-template-columns: auto 1fr auto;
@@ -423,7 +1618,7 @@
         .nav-button {
             display: inline-block;
             padding: 12px 28px;
-            background: linear-gradient(135deg, #0000ff, #0000ff);
+            background: linear-gradient(135deg, #007aff, #5856d6);
             color: white;
             text-decoration: none;
             border-radius: 12px;
@@ -431,7 +1626,6 @@
             font-size: 0.95rem;
             box-shadow: 0 4px 12px rgba(0, 122, 255, 0.3);
             transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
-			margin-bottom:10px;
         }
 
         .nav-button:hover {
@@ -451,8 +1645,6 @@
             font-size: 0.95rem;
             cursor: pointer;
             transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
-						margin-bottom:10px;
-
         }
 
         .btn-danger-stats:hover {
@@ -475,8 +1667,6 @@
             font-size: 0.95rem;
             cursor: pointer;
             transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
-						margin-bottom:10px;
-
         }
 
         .btn-logout:hover {
@@ -595,7 +1785,7 @@
         .modality-stat-title {
             font-size: 1.25rem;
             font-weight: 700;
-            color: #0000ff;;
+            color: #007aff;
             margin-bottom: 16px;
             text-align: center;
         }
@@ -627,7 +1817,7 @@
             background: transparent;
             border: 1px solid transparent;
             border-radius: 6px;
-            width: 50px;
+            width: 80px;
             text-align: right;
             transition: all 0.2s;
         }
@@ -649,25 +1839,14 @@
         }
 
         .auto-calculated {
-            background: rgba(200, 199, 209, 0.1) !important;
+            background: rgba(52, 199, 89, 0.1) !important;
             border-color: rgba(52, 199, 89, 0.3) !important;
         }
 
         @media (max-width: 768px) {
             .main-card {
-                padding: 0px;
+                padding: 24px;
             }
-			.main-card {
- 			   background: transparent;
-			    backdrop-filter: blur(20px) saturate(180%);
- 			   -webkit-backdrop-filter: blur(20px) saturate(180%);
-			    border: 0;
- 			   border-radius: 0px;
-			    padding: 0px;
- 			   box-shadow: none;
-			    margin-bottom: 24px;
-				margin-top:100px;
-}
 
             .form-row {
                 grid-template-columns: 1fr;
@@ -696,44 +1875,48 @@
 <body>
     <div class="container">
         <header>
-            <h1>Pool Tracker</h1>
-            <div style="margin-top: 20px;">
-                <a href="estadisticas.html" class="nav-button">
+            <h1 class="system-title">Registro de Partidos</h1>
+            <p class="system-subtitle">Sistema de seguimiento Xisco</p>
+            <div class="header-actions">
+                <a href="estadisticas.html" class="btn btn-primary">
                     Ver Estadísticas
                 </a>
-                <button onclick="resetAllDataFromStats()" class="btn-danger-stats" style="margin-left: 12px;">
+                <a href="config-github.html" class="btn btn-secondary">
+                    Configuración Cloud
+                </a>
+                <button onclick="resetAllDataFromStats()" class="btn btn-danger">
                     Reiniciar Datos
                 </button>
-                <a href="config-github.html" class="btn-secondary" style="margin-left: 12px; padding: 13px 16px; border-radius: 80px; font-size: 0.95rem; text-decoration: none; display: inline-block;">
-                    🔧
-                </a>
-                <button onclick="logout()" class="btn-logout" style="margin-left: 12px;">
+                <button onclick="logout()" class="btn btn-secondary">
                     Cerrar Sesión
                 </button>
             </div>
         </header>
 
-        <div id="successMessage" style="display: none;"></div>
+        <div id="successMessage" class="success-message" style="display: none;"></div>
 
         <div class="main-card">
-            <div style="text-align: center; margin-bottom: 20px;">
-              
-                
-                <div style="background: rgba(0, 122, 255, 0.05); border: 1px solid rgba(0, 122, 255, 0.15); border-radius: 12px; padding: 20px; margin-bottom: 20px; text-align: left;">
-                    <p style="color: #007aff; font-weight: 600; margin-bottom: 12px;">Formato del archivo Excel:</p>
-                    <p style="color: #86868b; font-size: 0.9rem; margin-bottom: 8px;"> Importa múltiples partidos desde un archivo Excel (.xlsx, .xls, .csv). El archivo debe tener las siguientes columnas (en cualquier orden):</p>
-                    <ul style="color: #86868b; font-size: 0.9rem; margin-left: 20px;">
-                        <li><strong>Rival</strong> o <strong>Jugador 2</strong> - Nombre del oponente</li>
-                        <li><strong>Partidas Xisco</strong> o <strong>Score1</strong> - Partidas ganadas por Xisco</li>
-                        <li><strong>Partidas Rival</strong> o <strong>Score2</strong> - Partidas ganadas por el rival</li>
-                        <li><strong>Material</strong> - Material usado por Xisco</li>
-                        <li><strong>Modalidad</strong> - Bola 8, Bola 9 o Bola 10</li>
-                        <li><strong>Fecha</strong> - Fecha del partido (formato: DD/MM/YYYY o YYYY-MM-DD)</li>
+            <div class="card-header">
+                <h2 class="section-title">Importar desde Excel</h2>
+                <p class="section-description">
+                    Carga múltiples partidos desde un archivo Excel (.xlsx, .xls, .csv)
+                </p>
+            </div>
+            <div class="card-content">
+                <div class="info-box">
+                    <div class="info-box-title">Formato del archivo</div>
+                    <ul class="info-box-list">
+                        <li><strong>Rival</strong> o Jugador 2 — Nombre del oponente</li>
+                        <li><strong>Partidas Xisco</strong> o Score1 — Partidas ganadas por Xisco</li>
+                        <li><strong>Partidas Rival</strong> o Score2 — Partidas ganadas por el rival</li>
+                        <li><strong>Material</strong> — Material usado por Xisco</li>
+                        <li><strong>Modalidad</strong> — Bola 8, Bola 9 o Bola 10</li>
+                        <li><strong>Fecha</strong> — Fecha del partido (DD/MM/YYYY)</li>
                     </ul>
                 </div>
 
-                <label for="excelFileInput" class="btn btn-primary" style="cursor: pointer; display: inline-block;">
-                    Importar desde Excel
+                <label for="excelFileInput" class="btn-submit" style="cursor: pointer; text-align: center;">
+                    Seleccionar archivo Excel
                 </label>
                 <input type="file" id="excelFileInput" accept=".xlsx,.xls,.csv" style="display: none;">
                 
@@ -743,7 +1926,7 @@
 
         <div class="main-card">
             <form id="matchForm">
-                <h2 class="" id="formTitle" style="text-align: center; margin-bottom: 32px;">Nuevo Partido</h2>
+                <h2 class="section-title" id="formTitle" style="text-align: center; margin-bottom: 32px;">Registrar Nuevo Partido</h2>
                 
                 <div class="form-section">
                     <h2 class="section-title">Jugadores</h2>
@@ -779,7 +1962,7 @@
                     <div class="material-chips" id="materialChips"></div>
                     <div class="add-material-input">
                         <input type="text" id="newMaterial" placeholder="Añadir nuevo material">
-                        <button type="button" class="btn-add-material" onclick="addMaterial()">+</button>
+                        <button type="button" class="btn-add-material" onclick="addMaterial()">+ Añadir</button>
                     </div>
                 </div>
 
@@ -802,8 +1985,8 @@
                 </div>
 
                 <div class="actions">
-                    <button type="submit" class="btn btn-primary"> Guardar Partido</button>
-                    <button type="button" class="btn btn-secondary" onclick="resetForm()">Limpiar</button>
+                    <button type="submit" class="btn btn-primary">💾 Guardar Partido</button>
+                    <button type="button" class="btn btn-secondary" onclick="resetForm()">🔄 Limpiar</button>
                 </div>
             </form>
         </div>
@@ -812,13 +1995,13 @@
             <div class="history-header">
                 <h2 class="section-title" style="margin: 0;">Estadísticas por Modalidad</h2>
                 <button class="btn-secondary" style="padding: 10px 20px; border-radius: 8px;" onclick="toggleModalityEdit()">
-                    ✏️ <span id="editBtnText"></span>
+                    ✏️ <span id="editBtnText">Editar</span>
                 </button>
             </div>
             
             <div style="background: rgba(0, 122, 255, 0.05); border: 1px solid rgba(0, 122, 255, 0.15); border-radius: 12px; padding: 20px; margin-bottom: 20px;">
                 <p style="color: #86868b; font-size: 0.9rem; margin-bottom: 12px;">
-                    <strong style="color: #007aff;">Sincronización automática:</strong> Estos valores se calculan automáticamente desde los partidos registrados. Puedes editarlos manualmente para añadir partidos adicionales no registrados en el sistema.
+                    <strong style="color: #007aff;">📊 Sincronización automática:</strong> Estos valores se calculan automáticamente desde los partidos registrados. Puedes editarlos manualmente para añadir partidos adicionales no registrados en el sistema.
                 </p>
             </div>
 
@@ -827,21 +2010,22 @@
 
         <div class="main-card history-card">
             <div class="history-header">
-                <div style="display: flex; gap: 8px; flex-wrap: wrap;">
-                    <button class="btn-secondary" style="padding: 10px 20px; border-radius: 8px;" onclick="syncToGitHub(event)">
-                        ☁️ Subir a Cloud
+                <h2 class="section-title" style="margin: 0;">Historial de Partidos</h2>
+                <div class="history-actions">
+                    <button class="btn-icon" onclick="syncToGitHub(event)">
+                        Subir a Cloud
                     </button>
-                    <button class="btn-secondary" style="padding: 10px 20px; border-radius: 8px;" onclick="loadFromGitHub(event)">
-                        🔽 Descargar de Cloud
+                    <button class="btn-icon" onclick="loadFromGitHub(event)">
+                        Descargar de Cloud
                     </button>
-                    <button class="btn-secondary" style="padding: 10px 20px; border-radius: 8px;" onclick="syncWithDashboard()">
-                        🔄 Sincronizar Local
+                    <button class="btn-icon" onclick="syncWithDashboard()">
+                        Sincronizar
                     </button>
-                    <button class="btn-secondary" style="padding: 10px 20px; border-radius: 8px;" onclick="downloadData()">
-                        📥 JSON
+                    <button class="btn-icon" onclick="downloadData()">
+                        Descargar JSON
                     </button>
-                    <button class="btn-danger" style="padding: 10px 20px; border-radius: 8px;" onclick="resetAllData()">
-                        🗑️
+                    <button class="btn-icon btn-danger" onclick="resetAllData()">
+                        Reiniciar
                     </button>
                 </div>
             </div>
@@ -1182,9 +2366,9 @@
             container.innerHTML = '';
 
             const modalities = [
-                { key: 'bola8', title: 'Bola 8', color: '#0000ff' },
-                { key: 'bola9', title: 'Bola 9', color: '#0000ff' },
-                { key: 'bola10', title: 'Bola 10', color: '#0000ff' }
+                { key: 'bola8', title: 'Bola 8', color: '#007aff' },
+                { key: 'bola9', title: 'Bola 9', color: '#5856d6' },
+                { key: 'bola10', title: 'Bola 10', color: '#af52de' }
             ];
 
             modalities.forEach(mod => {
@@ -1522,9 +2706,9 @@
                         <div class="match-score">${match.score1} - ${match.score2}</div>
                         <div class="match-details">${match.modality} • ${match.material1}</div>
                     </div>
-                    <div style="display: flex; gap: 8px;">
-                        <button class="btn-edit" onclick="editMatch(${match.id})">✏️</button>
-                        <button class="btn-delete" onclick="deleteMatch(${match.id})">🗑️</button>
+                    <div class="match-actions">
+                        <button class="btn-edit" onclick="editMatch(${match.id})">Editar</button>
+                        <button class="btn-delete" onclick="deleteMatch(${match.id})">Eliminar</button>
                     </div>
                 `;
                 
@@ -1547,19 +2731,19 @@
                 </div>
                 <div class="pagination-buttons">
                     <button class="pagination-btn" onclick="goToPage(1)" ${currentPage === 1 ? 'disabled' : ''}>
-                        ⏮️ 
+                        ⏮️ Primera
                     </button>
                     <button class="pagination-btn" onclick="goToPage(${currentPage - 1})" ${currentPage === 1 ? 'disabled' : ''}>
-                        ◀️ 
+                        ◀️ Anterior
                     </button>
                     <div class="page-numbers">
                         ${generatePageNumbers(totalPages)}
                     </div>
                     <button class="pagination-btn" onclick="goToPage(${currentPage + 1})" ${currentPage === totalPages ? 'disabled' : ''}>
-                         ▶️
+                        Siguiente ▶️
                     </button>
                     <button class="pagination-btn" onclick="goToPage(${totalPages})" ${currentPage === totalPages ? 'disabled' : ''}>
-                         ⏭️
+                        Última ⏭️
                     </button>
                 </div>
             `;
