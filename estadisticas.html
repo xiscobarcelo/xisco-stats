@@ -3,9 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    		 <link rel="icon" type="image/svg" href="logo.svg">
-
-    <title>Estadísticas</title>
+    <title>Estadísticas - Xisco</title>
     <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
     <script>
         // Verificar sesión activa
@@ -25,8 +23,8 @@
 
         body {
             font-family: -apple-system, BlinkMacSystemFont, 'Inter', 'Segoe UI', sans-serif;
-background:#f3f3f3;           
- min-height: 100vh;
+            background: linear-gradient(135deg, #f5f7fa 0%, #e8ecf1 100%);
+            min-height: 100vh;
             color: #1d1d1f;
             -webkit-font-smoothing: antialiased;
             -moz-osx-font-smoothing: grayscale;
@@ -45,7 +43,7 @@ background:#f3f3f3;
         }
 
         .header-content {
-            max-width: 1200px;
+            max-width: 1400px;
             margin: 0 auto;
             padding: 16px 20px;
             display: flex;
@@ -98,11 +96,11 @@ background:#f3f3f3;
         }
 
         .nav-link:hover {
-            background: rgba(0, 0, 0, 0.15);
+            background: rgba(0, 0, 0, 0.05);
         }
 
         .nav-link.active {
-            background: #000;
+            background: #0000ff;
             color: white;
         }
 
@@ -500,6 +498,85 @@ background:#f3f3f3;
             }
         }
 
+        /* Info desplegable */
+        .info-collapsible {
+            margin: 20px 0;
+        }
+
+        .info-toggle {
+            display: inline-flex;
+            align-items: center;
+            gap: 8px;
+            padding: 10px 16px;
+            background: rgba(0, 0, 255, 0.05);
+            border: 1px solid rgba(0, 0, 255, 0.15);
+            border-radius: 8px;
+            cursor: pointer;
+            transition: all 0.2s;
+            font-size: 0.875rem;
+            font-weight: 500;
+            color: #1d1d1f;
+        }
+
+        .info-toggle:hover {
+            background: rgba(0, 0, 255, 0.1);
+            border-color: rgba(0, 0, 255, 0.3);
+        }
+
+        .info-icon {
+            width: 20px;
+            height: 20px;
+            background: #0000ff;
+            color: white;
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 0.75rem;
+            font-weight: 700;
+        }
+
+        .info-content {
+            max-height: 0;
+            overflow: hidden;
+            transition: max-height 0.3s ease;
+            background: rgba(0, 0, 255, 0.03);
+            border: 1px solid rgba(0, 0, 255, 0.1);
+            border-radius: 8px;
+            margin-top: 8px;
+        }
+
+        .info-content.active {
+            max-height: 500px;
+        }
+
+        .info-content-inner {
+            padding: 20px;
+        }
+
+        .info-content ul {
+            margin-left: 20px;
+            line-height: 1.8;
+        }
+
+        .info-content li {
+            color: #86868b;
+            font-size: 0.875rem;
+        }
+
+        .info-content li strong {
+            color: #1d1d1f;
+        }
+
+        .chevron {
+            transition: transform 0.3s;
+            font-size: 0.7rem;
+        }
+
+        .chevron.active {
+            transform: rotate(180deg);
+        }
+
         /* Animations */
         .fade-in {
             animation: fadeInUp 0.6s cubic-bezier(0.4, 0, 0.2, 1) forwards;
@@ -841,18 +918,20 @@ background:#f3f3f3;
 
         .nav-link {
             display: inline-block;
-            padding: 8px 16px;
-            background: #fff;
-            color: #000;
+            padding: 12px 28px;
+            background: linear-gradient(135deg, #34c759, #30d158);
+            color: white;
             text-decoration: none;
             border-radius: 12px;
-            font-weight: 500;
+            font-weight: 600;
             font-size: 0.95rem;
-			border: 1px solid transparent;
-          }
+            box-shadow: 0 4px 12px rgba(52, 199, 89, 0.3);
+            transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+        }
 
         .nav-link:hover {
-       
+            transform: translateY(-2px);
+            box-shadow: 0 6px 20px rgba(52, 199, 89, 0.4);
         }
 
         .btn-danger-link {
@@ -1018,9 +1097,9 @@ background:#f3f3f3;
         <div class="header-content">
             <a href="registro-partidos.html" class="logo">
                 <div class="logo-icon">
-                    <img src="logo.svg" alt="Pool Tracker">
+                    <img src="logo.svg" alt="Xisco Stats">
                 </div>
-                <span class="logo-text">Pool Tracker</span>
+                <span class="logo-text">Xisco Stats</span>
             </a>
             
             <nav class="desktop-nav">
@@ -1237,15 +1316,30 @@ background:#f3f3f3;
 
     <script>
         const GITHUB_CONFIG_KEY = 'xisco_github_config';
+
+        // ⚙️ CONFIGURACIÓN HARDCODEADA DE GITHUB
+        // Rellena estos datos con tus credenciales para no tener que configurar cada vez
+        const HARDCODED_GITHUB_CONFIG = {
+            username: 'xiscobarcelo',
+            repo: 'xisco-stats',
+            token: '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'
+        };
         
         // Función para obtener la URL del data.json
         function getDataURL() {
+            // Primero intentar usar config hardcodeada
+            if (HARDCODED_GITHUB_CONFIG.username && 
+                HARDCODED_GITHUB_CONFIG.repo) {
+                return `https://raw.githubusercontent.com/${HARDCODED_GITHUB_CONFIG.username}/${HARDCODED_GITHUB_CONFIG.repo}/main/app/data.json`;
+            }
+            
+            // Si no, intentar localStorage
             const config = localStorage.getItem(GITHUB_CONFIG_KEY);
             if (config) {
                 const data = JSON.parse(config);
-                // URL raw de GitHub para acceso directo
                 return `https://raw.githubusercontent.com/${data.username}/${data.repo}/main/app/data.json`;
             }
+            
             // Fallback a la URL por defecto si no hay configuración
             return 'https://www.xiscobarcelo.com/app/data.json';
         }
@@ -2991,6 +3085,17 @@ Escribe "BORRAR" para confirmar:`;
             hamburger.classList.toggle('active');
             mobileMenu.classList.toggle('active');
             overlay.classList.toggle('active');
+        }
+
+        // Toggle info desplegable
+        function toggleInfo(id) {
+            const content = document.getElementById(id);
+            const chevron = document.getElementById(id + 'Chevron');
+            
+            content.classList.toggle('active');
+            if (chevron) {
+                chevron.classList.toggle('active');
+            }
         }
 
         // Cerrar menú al hacer click en un enlace

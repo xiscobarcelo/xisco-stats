@@ -3,10 +3,9 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Registro de Partidos</title>
+    <title>Registro de Partidos - Xisco</title>
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link rel="icon" type="image/svg" href="logo.svg">
     <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
     <script src="https://cdnjs.cloudflare.com/ajax/libs/xlsx/0.18.5/xlsx.full.min.js"></script>
     <script>
@@ -24,7 +23,7 @@
 
         body {
             font-family: -apple-system, BlinkMacSystemFont, 'Inter', 'Segoe UI', sans-serif;
-            background:#f3f3f3;
+            background: linear-gradient(135deg, #f5f7fa 0%, #e8ecf1 100%);
             min-height: 100vh;
             color: #1d1d1f;
             -webkit-font-smoothing: antialiased;
@@ -247,6 +246,85 @@
             .mobile-menu-overlay {
                 display: none !important;
             }
+        }
+
+        /* Info desplegable */
+        .info-collapsible {
+            margin: 20px 0;
+        }
+
+        .info-toggle {
+            display: inline-flex;
+            align-items: center;
+            gap: 8px;
+            padding: 10px 16px;
+            background: rgba(0, 0, 255, 0.05);
+            border: 1px solid rgba(0, 0, 255, 0.15);
+            border-radius: 8px;
+            cursor: pointer;
+            transition: all 0.2s;
+            font-size: 0.875rem;
+            font-weight: 500;
+            color: #1d1d1f;
+        }
+
+        .info-toggle:hover {
+            background: rgba(0, 0, 255, 0.1);
+            border-color: rgba(0, 0, 255, 0.3);
+        }
+
+        .info-icon {
+            width: 20px;
+            height: 20px;
+            background: #0000ff;
+            color: white;
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 0.75rem;
+            font-weight: 700;
+        }
+
+        .info-content {
+            max-height: 0;
+            overflow: hidden;
+            transition: max-height 0.3s ease;
+            background: rgba(0, 0, 255, 0.03);
+            border: 1px solid rgba(0, 0, 255, 0.1);
+            border-radius: 8px;
+            margin-top: 8px;
+        }
+
+        .info-content.active {
+            max-height: 500px;
+        }
+
+        .info-content-inner {
+            padding: 20px;
+        }
+
+        .info-content ul {
+            margin-left: 20px;
+            line-height: 1.8;
+        }
+
+        .info-content li {
+            color: #86868b;
+            font-size: 0.875rem;
+        }
+
+        .info-content li strong {
+            color: #1d1d1f;
+        }
+
+        .chevron {
+            transition: transform 0.3s;
+            font-size: 0.7rem;
+        }
+
+        .chevron.active {
+            transform: rotate(180deg);
         }
         }
 
@@ -951,20 +1029,29 @@
                     Importa múltiples partidos desde un archivo Excel (.xlsx, .xls, .csv)
                 </p>
                 
-                <div style="background: rgba(0, 122, 255, 0.05); border: 1px solid rgba(0, 122, 255, 0.15); border-radius: 12px; padding: 20px; margin-bottom: 20px; text-align: left;">
-                    <p style="color: #0000ff; font-weight: 600; margin-bottom: 12px;">Formato del archivo Excel:</p>
-                    <p style="color: #86868b; font-size: 0.9rem; margin-bottom: 8px;">El archivo debe tener las siguientes columnas (en cualquier orden):</p>
-                    <ul style="color: #86868b; font-size: 0.9rem; margin-left: 20px; line-height: 1.6;">
-                        <li><strong>Rival</strong> o <strong>Jugador 2</strong> - Nombre del oponente</li>
-                        <li><strong>Partidas Xisco</strong> o <strong>Score1</strong> - Partidas ganadas por Xisco</li>
-                        <li><strong>Partidas Rival</strong> o <strong>Score2</strong> - Partidas ganadas por el rival</li>
-                        <li><strong>Material</strong> - Material usado por Xisco</li>
-                        <li><strong>Modalidad</strong> - Bola 8, Bola 9 o Bola 10</li>
-                        <li><strong>Fecha</strong> - Fecha del partido (formato: DD/MM/YYYY o YYYY-MM-DD)</li>
-                    </ul>
+                <!-- Info desplegable -->
+                <div class="info-collapsible">
+                    <button class="info-toggle" onclick="toggleInfo('excelInfo')">
+                        <span class="info-icon">?</span>
+                        <span>Formato del archivo</span>
+                        <span class="chevron" id="excelInfoChevron">▼</span>
+                    </button>
+                    <div class="info-content" id="excelInfo">
+                        <div class="info-content-inner">
+                            <p style="color: #86868b; font-size: 0.9rem; margin-bottom: 12px;">El archivo debe tener las siguientes columnas (en cualquier orden):</p>
+                            <ul>
+                                <li><strong>Rival</strong> o <strong>Jugador 2</strong> - Nombre del oponente</li>
+                                <li><strong>Partidas Xisco</strong> o <strong>Score1</strong> - Partidas ganadas por Xisco</li>
+                                <li><strong>Partidas Rival</strong> o <strong>Score2</strong> - Partidas ganadas por el rival</li>
+                                <li><strong>Material</strong> - Material usado por Xisco</li>
+                                <li><strong>Modalidad</strong> - Bola 8, Bola 9 o Bola 10</li>
+                                <li><strong>Fecha</strong> - Fecha del partido (formato: DD/MM/YYYY o YYYY-MM-DD)</li>
+                            </ul>
+                        </div>
+                    </div>
                 </div>
 
-                <label for="excelFileInput" class="btn btn-primary" style="cursor: pointer; display: inline-block;">
+                <label for="excelFileInput" class="btn btn-primary" style="cursor: pointer; display: inline-block; margin-top: 20px;">
                     Seleccionar archivo Excel
                 </label>
                 <input type="file" id="excelFileInput" accept=".xlsx,.xls,.csv" style="display: none;">
@@ -1112,7 +1199,26 @@
         // Configuración de GitHub (el usuario la configura)
         const GITHUB_CONFIG_KEY = 'xisco_github_config';
 
+        // ⚙️ CONFIGURACIÓN HARDCODEADA DE GITHUB
+        // Rellena estos datos con tus credenciales para no tener que configurar cada vez
+        const HARDCODED_GITHUB_CONFIG = {
+            username: 'xiscobarcelo',
+            repo: 'xisco-stats',
+            token: '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'
+        };
+
+        // Si quieres usar configuración hardcodeada, rellena los 3 campos arriba
+        // Si están vacíos, usará localStorage (configuración manual en config-github.html)
+
         function getGitHubConfig() {
+            // Primero intentar usar config hardcodeada si existe
+            if (HARDCODED_GITHUB_CONFIG.username && 
+                HARDCODED_GITHUB_CONFIG.repo && 
+                HARDCODED_GITHUB_CONFIG.token) {
+                return HARDCODED_GITHUB_CONFIG;
+            }
+            
+            // Si no, usar localStorage
             const config = localStorage.getItem(GITHUB_CONFIG_KEY);
             return config ? JSON.parse(config) : null;
         }
@@ -2276,6 +2382,17 @@ Escribe "BORRAR" para confirmar:`;
             hamburger.classList.toggle('active');
             mobileMenu.classList.toggle('active');
             overlay.classList.toggle('active');
+        }
+
+        // Toggle info desplegable
+        function toggleInfo(id) {
+            const content = document.getElementById(id);
+            const chevron = document.getElementById(id + 'Chevron');
+            
+            content.classList.toggle('active');
+            if (chevron) {
+                chevron.classList.toggle('active');
+            }
         }
 
         // Cerrar menú al hacer click en un enlace
