@@ -4,6 +4,8 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Estadísticas - Xisco</title>
+    <link rel="icon" type="image/svg+xml" href="favicon.svg">
+    <link rel="alternate icon" href="favicon.ico">
     <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
     <script>
         // Verificar sesión activa
@@ -195,7 +197,7 @@
         }
 
         .container {
-            max-width: 1400px;
+            max-width: 1200px;
             margin: 0 auto;
             padding: 20px;
         }
@@ -212,6 +214,14 @@
             font-weight: 700;
             color: #1d1d1f;
             letter-spacing: -0.02em;
+            margin-bottom: 8px;
+        }
+
+        .subtitle {
+            font-size: clamp(0.9rem, 2vw, 1.1rem);
+            color: #86868b;
+            font-weight: 400;
+        }
             margin-bottom: 12px;
             background: linear-gradient(135deg, #1d1d1f 0%, #4a4a4a 100%);
             -webkit-background-clip: text;
@@ -237,7 +247,7 @@
             height: 50px;
             margin: 0 auto 24px;
             border: 3px solid #e8ecf1;
-            border-top: 3px solid #000000;
+            border-top: 3px solid #3b82f6;
             border-radius: 50%;
             animation: spin 0.8s cubic-bezier(0.4, 0, 0.2, 1) infinite;
         }
@@ -294,7 +304,7 @@
             left: 0;
             right: 0;
             height: 3px;
-            background: linear-gradient(90deg, #000000, #5856d6);
+            background: linear-gradient(90deg, #3b82f6, #5856d6);
             opacity: 0;
             transition: opacity 0.3s;
         }
@@ -842,21 +852,22 @@
         }
 
         .action-btn.primary {
-            background: linear-gradient(135deg, #000000, #5856d6);
+            background: #000000;
             color: white;
-            box-shadow: 0 4px 12px rgba(0, 0, 0, 0.3);
+            box-shadow: 0 4px 12px rgba(0, 0, 0, 0.2);
         }
 
         .action-btn.primary:hover {
+            background: #1a1a1a;
             transform: translateY(-2px);
-            box-shadow: 0 6px 20px rgba(0, 0, 0, 0.4);
+            box-shadow: 0 6px 20px rgba(0, 0, 0, 0.3);
         }
 
         .action-btn.secondary {
             background: rgba(255, 255, 255, 0.7);
             backdrop-filter: blur(20px);
             color: #000000;
-            border: 1px solid rgba(0, 0, 0, 0.3);
+            border: 1px solid rgba(0, 0, 0, 0.2);
         }
 
         .action-btn.secondary:hover {
@@ -1775,11 +1786,11 @@ Escribe "BORRAR" para confirmar:`;
             if (totalAutoMatches > 0) {
                 autoDetectedInfo.style.cssText = 'background: rgba(0, 0, 0, 0.1); border: 1px solid rgba(0, 0, 0, 0.3); border-radius: 12px; padding: 16px; margin-bottom: 16px;';
                 autoDetectedInfo.innerHTML = `
-                    <p style="color: #000000; font-weight: 600; margin-bottom: 8px;">📊 Partidos en el Sistema (ya incluidos arriba)</p>
+                    <p style="color: #3b82f6; font-weight: 600; margin-bottom: 8px;">📊 Partidos en el Sistema (ya incluidos arriba)</p>
                     <div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(150px, 1fr)); gap: 12px; margin-top: 12px;">
                         <div style="text-align: center;">
                             <div style="font-size: 0.75rem; color: #86868b; text-transform: uppercase; letter-spacing: 0.05em;">Bola 8</div>
-                            <div style="font-size: 1.25rem; font-weight: 700; color: #000000;">${matchStats.bola8?.matchesPlayed || 0} partidos</div>
+                            <div style="font-size: 1.25rem; font-weight: 700; color: #3b82f6;">${matchStats.bola8?.matchesPlayed || 0} partidos</div>
                             <div style="font-size: 0.9rem; color: #86868b;">${matchStats.bola8?.gamesPlayed || 0} partidas</div>
                         </div>
                         <div style="text-align: center;">
@@ -1953,7 +1964,7 @@ Escribe "BORRAR" para confirmar:`;
                     datasets: [{
                         label: 'Jugados',
                         data: [modalities.bola8.played, modalities.bola9.played, modalities.bola10.played],
-                        backgroundColor: 'rgba(0, 0, 0, 0.8)',
+                        backgroundColor: 'rgba(59, 130, 246, 0.8)',
                         borderRadius: 8
                     }, {
                         label: 'Ganados',
@@ -2009,10 +2020,10 @@ Escribe "BORRAR" para confirmar:`;
                             modalities.bola9.matchWinRate,
                             modalities.bola10.matchWinRate
                         ],
-                        backgroundColor: 'rgba(0, 0, 0, 0.2)',
+                        backgroundColor: 'rgba(59, 130, 246, 0.2)',
                         borderColor: 'rgba(0, 0, 0, 1)',
                         borderWidth: 2,
-                        pointBackgroundColor: '#000000',
+                        pointBackgroundColor: '#3b82f6',
                         pointBorderColor: '#fff',
                         pointBorderWidth: 2
                     }, {
@@ -2075,9 +2086,9 @@ Escribe "BORRAR" para confirmar:`;
                             modalities.bola10.gamesPlayed
                         ],
                         backgroundColor: [
-                            'rgba(0, 0, 0, 0.9)',
-                            'rgba(88, 86, 214, 0.9)',
-                            'rgba(175, 82, 222, 0.9)'
+                            'rgba(59, 130, 246, 0.9)',   // Azul vibrante
+                            'rgba(16, 185, 129, 0.9)',   // Verde esmeralda
+                            'rgba(249, 115, 22, 0.9)'    // Naranja cálido
                         ],
                         borderWidth: 0,
                         spacing: 2
@@ -2242,7 +2253,7 @@ Escribe "BORRAR" para confirmar:`;
                     datasets: [{
                         label: 'Victorias',
                         data: Object.values(playerWins),
-                        backgroundColor: 'rgba(0, 0, 0, 0.8)',
+                        backgroundColor: 'rgba(59, 130, 246, 0.8)',
                         borderRadius: 8,
                         borderSkipped: false
                     }]
@@ -2304,11 +2315,11 @@ Escribe "BORRAR" para confirmar:`;
                     datasets: [{
                         data: Object.values(distribution),
                         backgroundColor: [
-                            'rgba(0, 0, 0, 0.9)',
-                            'rgba(88, 86, 214, 0.9)',
-                            'rgba(175, 82, 222, 0.9)',
-                            'rgba(255, 45, 85, 0.9)',
-                            'rgba(255, 149, 0, 0.9)'
+                            'rgba(59, 130, 246, 0.9)',   // Azul vibrante
+                            'rgba(16, 185, 129, 0.9)',   // Verde esmeralda
+                            'rgba(249, 115, 22, 0.9)',   // Naranja cálido
+                            'rgba(236, 72, 153, 0.9)',   // Rosa fucsia
+                            'rgba(168, 85, 247, 0.9)'    // Púrpura
                         ],
                         borderWidth: 0,
                         spacing: 2
@@ -2356,9 +2367,9 @@ Escribe "BORRAR" para confirmar:`;
                     datasets: [{
                         data: Object.values(modalities),
                         backgroundColor: [
-                            'rgba(0, 0, 0, 0.7)',
-                            'rgba(88, 86, 214, 0.7)',
-                            'rgba(175, 82, 222, 0.7)'
+                            'rgba(59, 130, 246, 0.7)',   // Azul vibrante
+                            'rgba(16, 185, 129, 0.7)',   // Verde esmeralda
+                            'rgba(249, 115, 22, 0.7)'    // Naranja cálido
                         ],
                         borderWidth: 0
                     }]
@@ -2464,11 +2475,11 @@ Escribe "BORRAR" para confirmar:`;
                         label: 'Total Partidas',
                         data: sortedMatches.map(m => parseInt(m.score1) + parseInt(m.score2)),
                         borderColor: 'rgba(0, 0, 0, 1)',
-                        backgroundColor: 'rgba(0, 0, 0, 0.1)',
+                        backgroundColor: 'rgba(59, 130, 246, 0.1)',
                         tension: 0.4,
                         fill: true,
                         pointRadius: 4,
-                        pointBackgroundColor: '#000000',
+                        pointBackgroundColor: '#3b82f6',
                         pointBorderColor: '#fff',
                         pointBorderWidth: 2,
                         pointHoverRadius: 6
@@ -2544,10 +2555,10 @@ Escribe "BORRAR" para confirmar:`;
                     datasets: [{
                         label: 'Partidas Promedio',
                         data: avgScore.map(p => p.avg),
-                        backgroundColor: 'rgba(0, 0, 0, 0.2)',
+                        backgroundColor: 'rgba(59, 130, 246, 0.2)',
                         borderColor: 'rgba(0, 0, 0, 1)',
                         borderWidth: 2,
-                        pointBackgroundColor: '#000000',
+                        pointBackgroundColor: '#3b82f6',
                         pointBorderColor: '#fff',
                         pointBorderWidth: 2,
                         pointRadius: 4,
@@ -2741,7 +2752,7 @@ Escribe "BORRAR" para confirmar:`;
                     datasets: [{
                         label: 'Victorias',
                         data: [stats1.wins, stats2.wins],
-                        backgroundColor: 'rgba(0, 0, 0, 0.8)',
+                        backgroundColor: 'rgba(59, 130, 246, 0.8)',
                         borderRadius: 8
                     }, {
                         label: 'Derrotas',
@@ -2806,10 +2817,10 @@ Escribe "BORRAR" para confirmar:`;
                             stats1.winRate,
                             stats1.avgScore * 10
                         ],
-                        backgroundColor: 'rgba(0, 0, 0, 0.2)',
+                        backgroundColor: 'rgba(59, 130, 246, 0.2)',
                         borderColor: 'rgba(0, 0, 0, 1)',
                         borderWidth: 2,
-                        pointBackgroundColor: '#000000',
+                        pointBackgroundColor: '#3b82f6',
                         pointBorderColor: '#fff',
                         pointBorderWidth: 2
                     }, {
@@ -2874,7 +2885,7 @@ Escribe "BORRAR" para confirmar:`;
                     datasets: [{
                         label: player1,
                         data: [stats1.scoreGained, stats1.scoreConceded, stats1.scoreGained - stats1.scoreConceded],
-                        backgroundColor: 'rgba(0, 0, 0, 0.8)',
+                        backgroundColor: 'rgba(59, 130, 246, 0.8)',
                         borderRadius: 8
                     }, {
                         label: player2,
