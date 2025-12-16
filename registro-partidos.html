@@ -3,17 +3,23 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Registro de Partidos - Xisco</title>
+    <title>Pool Tracker</title>
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+			 <link rel="icon" type="image/jpg" href="favicon.jpg">
+
     <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
     <script src="https://cdnjs.cloudflare.com/ajax/libs/xlsx/0.18.5/xlsx.full.min.js"></script>
-    <script>
+    
+	
+      <script>
         // Verificar sesión activa
         if (!sessionStorage.getItem('xisco_session_active')) {
             window.location.href = 'index.html';
         }
     </script>
+	
+	
     <style>
         * {
             margin: 0;
@@ -50,6 +56,10 @@
             margin-bottom: 8px;
         }
 
+		#formTitle{
+	            font-size: 2rem;
+
+		}
         .subtitle {
             font-size: 1rem;
             color: #86868b;
@@ -71,7 +81,7 @@
         .form-section {
             margin-bottom: 32px;
         }
-
+		
         .section-title {
             font-size: 1.25rem;
             font-weight: 600;
@@ -192,7 +202,7 @@
         }
 
         .add-material-input {
-            display: flex;
+            display: grid;
             gap: 8px;
             margin-top: 12px;
         }
@@ -237,7 +247,7 @@
         }
 
         .btn-primary {
-            background: linear-gradient(135deg, #007aff, #5856d6);
+            background: linear-gradient(135deg, #0000ff, #0000ff);
             color: white;
             box-shadow: 0 4px 12px rgba(0, 122, 255, 0.3);
         }
@@ -252,6 +262,7 @@
             backdrop-filter: blur(20px);
             color: #007aff;
             border: 1px solid rgba(0, 122, 255, 0.3);
+	
         }
 
         .btn-secondary:hover {
@@ -412,7 +423,7 @@
         .nav-button {
             display: inline-block;
             padding: 12px 28px;
-            background: linear-gradient(135deg, #007aff, #5856d6);
+            background: linear-gradient(135deg, #0000ff, #0000ff);
             color: white;
             text-decoration: none;
             border-radius: 12px;
@@ -420,6 +431,7 @@
             font-size: 0.95rem;
             box-shadow: 0 4px 12px rgba(0, 122, 255, 0.3);
             transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+			margin-bottom:10px;
         }
 
         .nav-button:hover {
@@ -439,6 +451,8 @@
             font-size: 0.95rem;
             cursor: pointer;
             transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+						margin-bottom:10px;
+
         }
 
         .btn-danger-stats:hover {
@@ -461,6 +475,8 @@
             font-size: 0.95rem;
             cursor: pointer;
             transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+						margin-bottom:10px;
+
         }
 
         .btn-logout:hover {
@@ -579,7 +595,7 @@
         .modality-stat-title {
             font-size: 1.25rem;
             font-weight: 700;
-            color: #007aff;
+            color: #0000ff;;
             margin-bottom: 16px;
             text-align: center;
         }
@@ -611,7 +627,7 @@
             background: transparent;
             border: 1px solid transparent;
             border-radius: 6px;
-            width: 80px;
+            width: 50px;
             text-align: right;
             transition: all 0.2s;
         }
@@ -633,14 +649,25 @@
         }
 
         .auto-calculated {
-            background: rgba(52, 199, 89, 0.1) !important;
+            background: rgba(200, 199, 209, 0.1) !important;
             border-color: rgba(52, 199, 89, 0.3) !important;
         }
 
         @media (max-width: 768px) {
             .main-card {
-                padding: 24px;
+                padding: 0px;
             }
+			.main-card {
+ 			   background: transparent;
+			    backdrop-filter: blur(20px) saturate(180%);
+ 			   -webkit-backdrop-filter: blur(20px) saturate(180%);
+			    border: 0;
+ 			   border-radius: 0px;
+			    padding: 0px;
+ 			   box-shadow: none;
+			    margin-bottom: 24px;
+				margin-top:100px;
+}
 
             .form-row {
                 grid-template-columns: 1fr;
@@ -669,20 +696,19 @@
 <body>
     <div class="container">
         <header>
-            <h1>⚡ Registro de Partidos</h1>
-            <p class="subtitle">Sistema de seguimiento de Xisco</p>
+            <h1>Pool Tracker</h1>
             <div style="margin-top: 20px;">
                 <a href="estadisticas.html" class="nav-button">
-                    📊 Ver Estadísticas
+                    Ver Estadísticas
                 </a>
                 <button onclick="resetAllDataFromStats()" class="btn-danger-stats" style="margin-left: 12px;">
-                    🗑️ Reiniciar Datos
+                    Reiniciar Datos
                 </button>
-                <a href="config-github.html" class="btn-secondary" style="margin-left: 12px; padding: 12px 28px; border-radius: 12px; font-size: 0.95rem; text-decoration: none; display: inline-block;">
-                    🔧 Config GitHub
+                <a href="config-github.html" class="btn-secondary" style="margin-left: 12px; padding: 13px 16px; border-radius: 80px; font-size: 0.95rem; text-decoration: none; display: inline-block;">
+                    🔧
                 </a>
                 <button onclick="logout()" class="btn-logout" style="margin-left: 12px;">
-                    🚪 Cerrar Sesión
+                    Cerrar Sesión
                 </button>
             </div>
         </header>
@@ -691,14 +717,11 @@
 
         <div class="main-card">
             <div style="text-align: center; margin-bottom: 20px;">
-                <h2 class="section-title" style="margin-bottom: 16px;">📥 Importar desde Excel</h2>
-                <p style="color: #86868b; margin-bottom: 20px; font-size: 0.95rem;">
-                    Importa múltiples partidos desde un archivo Excel (.xlsx, .xls, .csv)
-                </p>
+              
                 
                 <div style="background: rgba(0, 122, 255, 0.05); border: 1px solid rgba(0, 122, 255, 0.15); border-radius: 12px; padding: 20px; margin-bottom: 20px; text-align: left;">
-                    <p style="color: #007aff; font-weight: 600; margin-bottom: 12px;">📋 Formato del archivo Excel:</p>
-                    <p style="color: #86868b; font-size: 0.9rem; margin-bottom: 8px;">El archivo debe tener las siguientes columnas (en cualquier orden):</p>
+                    <p style="color: #007aff; font-weight: 600; margin-bottom: 12px;">Formato del archivo Excel:</p>
+                    <p style="color: #86868b; font-size: 0.9rem; margin-bottom: 8px;"> Importa múltiples partidos desde un archivo Excel (.xlsx, .xls, .csv). El archivo debe tener las siguientes columnas (en cualquier orden):</p>
                     <ul style="color: #86868b; font-size: 0.9rem; margin-left: 20px;">
                         <li><strong>Rival</strong> o <strong>Jugador 2</strong> - Nombre del oponente</li>
                         <li><strong>Partidas Xisco</strong> o <strong>Score1</strong> - Partidas ganadas por Xisco</li>
@@ -710,7 +733,7 @@
                 </div>
 
                 <label for="excelFileInput" class="btn btn-primary" style="cursor: pointer; display: inline-block;">
-                    📤 Seleccionar archivo Excel
+                    Importar desde Excel
                 </label>
                 <input type="file" id="excelFileInput" accept=".xlsx,.xls,.csv" style="display: none;">
                 
@@ -720,7 +743,7 @@
 
         <div class="main-card">
             <form id="matchForm">
-                <h2 class="section-title" id="formTitle" style="text-align: center; margin-bottom: 32px;">Registrar Nuevo Partido</h2>
+                <h2 class="" id="formTitle" style="text-align: center; margin-bottom: 32px;">Nuevo Partido</h2>
                 
                 <div class="form-section">
                     <h2 class="section-title">Jugadores</h2>
@@ -756,7 +779,7 @@
                     <div class="material-chips" id="materialChips"></div>
                     <div class="add-material-input">
                         <input type="text" id="newMaterial" placeholder="Añadir nuevo material">
-                        <button type="button" class="btn-add-material" onclick="addMaterial()">+ Añadir</button>
+                        <button type="button" class="btn-add-material" onclick="addMaterial()">+</button>
                     </div>
                 </div>
 
@@ -779,8 +802,8 @@
                 </div>
 
                 <div class="actions">
-                    <button type="submit" class="btn btn-primary">💾 Guardar Partido</button>
-                    <button type="button" class="btn btn-secondary" onclick="resetForm()">🔄 Limpiar</button>
+                    <button type="submit" class="btn btn-primary"> Guardar Partido</button>
+                    <button type="button" class="btn btn-secondary" onclick="resetForm()">Limpiar</button>
                 </div>
             </form>
         </div>
@@ -789,13 +812,13 @@
             <div class="history-header">
                 <h2 class="section-title" style="margin: 0;">Estadísticas por Modalidad</h2>
                 <button class="btn-secondary" style="padding: 10px 20px; border-radius: 8px;" onclick="toggleModalityEdit()">
-                    ✏️ <span id="editBtnText">Editar</span>
+                    ✏️ <span id="editBtnText"></span>
                 </button>
             </div>
             
             <div style="background: rgba(0, 122, 255, 0.05); border: 1px solid rgba(0, 122, 255, 0.15); border-radius: 12px; padding: 20px; margin-bottom: 20px;">
                 <p style="color: #86868b; font-size: 0.9rem; margin-bottom: 12px;">
-                    <strong style="color: #007aff;">📊 Sincronización automática:</strong> Estos valores se calculan automáticamente desde los partidos registrados. Puedes editarlos manualmente para añadir partidos adicionales no registrados en el sistema.
+                    <strong style="color: #007aff;">Sincronización automática:</strong> Estos valores se calculan automáticamente desde los partidos registrados. Puedes editarlos manualmente para añadir partidos adicionales no registrados en el sistema.
                 </p>
             </div>
 
@@ -804,7 +827,6 @@
 
         <div class="main-card history-card">
             <div class="history-header">
-                <h2 class="section-title" style="margin: 0;">Historial de Partidos</h2>
                 <div style="display: flex; gap: 8px; flex-wrap: wrap;">
                     <button class="btn-secondary" style="padding: 10px 20px; border-radius: 8px;" onclick="syncToGitHub(event)">
                         ☁️ Subir a Cloud
@@ -816,10 +838,10 @@
                         🔄 Sincronizar Local
                     </button>
                     <button class="btn-secondary" style="padding: 10px 20px; border-radius: 8px;" onclick="downloadData()">
-                        📥 Descargar JSON
+                        📥 JSON
                     </button>
                     <button class="btn-danger" style="padding: 10px 20px; border-radius: 8px;" onclick="resetAllData()">
-                        🗑️ Reiniciar
+                        🗑️
                     </button>
                 </div>
             </div>
@@ -1160,9 +1182,9 @@
             container.innerHTML = '';
 
             const modalities = [
-                { key: 'bola8', title: 'Bola 8', color: '#007aff' },
-                { key: 'bola9', title: 'Bola 9', color: '#5856d6' },
-                { key: 'bola10', title: 'Bola 10', color: '#af52de' }
+                { key: 'bola8', title: 'Bola 8', color: '#0000ff' },
+                { key: 'bola9', title: 'Bola 9', color: '#0000ff' },
+                { key: 'bola10', title: 'Bola 10', color: '#0000ff' }
             ];
 
             modalities.forEach(mod => {

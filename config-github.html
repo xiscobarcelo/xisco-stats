@@ -3,7 +3,9 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Configuración GitHub - Sistema Xisco</title>
+    <title>Configuración GitHub</title>
+				 <link rel="icon" type="image/jpg" href="favicon.jpg">
+
     <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
     <style>
         * {
@@ -14,7 +16,7 @@
 
         body {
             font-family: 'Inter', -apple-system, BlinkMacSystemFont, sans-serif;
-            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            background: linear-gradient(135deg, #000 0%, #0000ff 100%);
             min-height: 100vh;
             display: flex;
             align-items: center;
@@ -124,7 +126,7 @@
         }
 
         .btn-primary {
-            background: #007aff;
+            background: #0000ff;
             color: white;
         }
 
@@ -204,11 +206,32 @@
             font-family: monospace;
             font-size: 0.9em;
         }
+		 @media (max-width: 768px) {
+			 body {
+    font-family: 'Inter', -apple-system, BlinkMacSystemFont, sans-serif;
+    background: none;
+     padding: 20px;
+}
+			 .step {
+				  background: #fff;
+			 }
+			 
+			 .config-container {
+    background: rgba(255, 255, 255, 0.95);
+    backdrop-filter: blur(20px);
+    border-radius: 0px;
+    padding: 0px;
+    max-width: 600px;
+    width: 100%;
+    box-shadow:none;
+}
+			 
+		}
     </style>
 </head>
 <body>
     <div class="config-container">
-        <h1>☁️ Configuración GitHub</h1>
+        <h1>Configuración GitHub</h1>
         <p class="subtitle">Sincroniza tus datos automáticamente en la nube</p>
 
         <div class="alert alert-success" id="alertSuccess"></div>
