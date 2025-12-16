@@ -61,14 +61,15 @@
         .logo-icon {
             width: 40px;
             height: 40px;
-            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
-            border-radius: 10px;
             display: flex;
             align-items: center;
             justify-content: center;
-            font-weight: 700;
-            color: white;
-            font-size: 1.2rem;
+        }
+
+        .logo-icon img {
+            width: 100%;
+            height: 100%;
+            object-fit: contain;
         }
 
         .logo-text {
@@ -99,7 +100,7 @@
         }
 
         .nav-link.active {
-            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            background: #0000ff;
             color: white;
         }
 
@@ -318,7 +319,7 @@
 
         input:focus, select:focus {
             outline: none;
-            border-color: #007aff;
+            border-color: #0000ff;
             box-shadow: 0 0 0 4px rgba(0, 122, 255, 0.1);
         }
 
@@ -357,7 +358,7 @@
             text-align: center;
             font-size: 1.5rem;
             font-weight: 700;
-            color: #007aff;
+            color: #0000ff;
         }
 
         .material-chips {
@@ -373,7 +374,7 @@
             border-radius: 24px;
             font-size: 0.9rem;
             font-weight: 500;
-            color: #007aff;
+            color: #0000ff;
             cursor: pointer;
             transition: all 0.2s;
         }
@@ -384,8 +385,8 @@
         }
 
         .material-chip.selected {
-            background: #007aff;
-            border-color: #007aff;
+            background: #0000ff;
+            border-color: #0000ff;
             color: white;
         }
 
@@ -406,7 +407,7 @@
             border-radius: 12px;
             font-size: 0.9rem;
             font-weight: 600;
-            color: #007aff;
+            color: #0000ff;
             cursor: pointer;
             transition: all 0.2s;
             white-space: nowrap;
@@ -435,26 +436,32 @@
         }
 
         .btn-primary {
-            background: linear-gradient(135deg, #007aff, #5856d6);
+            background: #000;
             color: white;
-            box-shadow: 0 4px 12px rgba(0, 122, 255, 0.3);
+            box-shadow: 0 4px 12px rgba(0, 0, 0, 0.2);
         }
 
         .btn-primary:hover {
+            background: #0000ff;
             transform: translateY(-2px);
-            box-shadow: 0 6px 20px rgba(0, 122, 255, 0.4);
+            box-shadow: 0 6px 20px rgba(0, 0, 255, 0.4);
         }
 
         .btn-secondary {
             background: rgba(255, 255, 255, 0.7);
             backdrop-filter: blur(20px);
-            color: #007aff;
-            border: 1px solid rgba(0, 122, 255, 0.3);
+            color: #000;
+            border: 1px solid rgba(0, 0, 0, 0.2);
+            padding: 10px 16px;
+            border-radius: 8px;
+            font-size: 0.85rem;
+            font-weight: 500;
         }
 
         .btn-secondary:hover {
             background: rgba(255, 255, 255, 0.9);
-            border-color: #007aff;
+            border-color: #0000ff;
+            color: #0000ff;
             transform: translateY(-2px);
         }
 
@@ -474,9 +481,32 @@
 
         .history-header {
             display: flex;
-            justify-content: space-between;
-            align-items: center;
+            flex-direction: column;
+            gap: 16px;
             margin-bottom: 20px;
+        }
+
+        .history-header h2 {
+            margin: 0;
+        }
+
+        .history-actions {
+            display: flex;
+            gap: 8px;
+            flex-wrap: wrap;
+        }
+
+        .history-actions button {
+            flex: 1;
+            min-width: fit-content;
+            white-space: nowrap;
+        }
+
+        @media (max-width: 768px) {
+            .history-actions button {
+                font-size: 0.75rem;
+                padding: 8px 12px;
+            }
         }
 
         .match-list {
@@ -520,7 +550,7 @@
         .match-score {
             font-size: 1.25rem;
             font-weight: 700;
-            color: #007aff;
+            color: #0000ff;
         }
 
         .match-details {
@@ -549,7 +579,7 @@
             background: rgba(0, 122, 255, 0.1);
             border: 1px solid rgba(0, 122, 255, 0.3);
             border-radius: 8px;
-            color: #007aff;
+            color: #0000ff;
             font-size: 0.875rem;
             font-weight: 600;
             cursor: pointer;
@@ -610,7 +640,7 @@
         .nav-button {
             display: inline-block;
             padding: 12px 28px;
-            background: linear-gradient(135deg, #007aff, #5856d6);
+            background: linear-gradient(135deg, #0000ff, #5856d6);
             color: white;
             text-decoration: none;
             border-radius: 12px;
@@ -695,7 +725,7 @@
             background: rgba(0, 122, 255, 0.1);
             border: 1px solid rgba(0, 122, 255, 0.3);
             border-radius: 10px;
-            color: #007aff;
+            color: #0000ff;
             font-size: 0.9rem;
             font-weight: 600;
             cursor: pointer;
@@ -713,9 +743,9 @@
         }
 
         .pagination-btn.active {
-            background: #007aff;
+            background: #0000ff;
             color: white;
-            border-color: #007aff;
+            border-color: #0000ff;
         }
 
         .page-numbers {
@@ -745,9 +775,9 @@
         }
 
         .page-number.active {
-            background: #007aff;
+            background: #0000ff;
             color: white;
-            border-color: #007aff;
+            border-color: #0000ff;
         }
 
         .page-number.ellipsis {
@@ -777,7 +807,7 @@
         .modality-stat-title {
             font-size: 1.25rem;
             font-weight: 700;
-            color: #007aff;
+            color: #0000ff;
             margin-bottom: 16px;
             text-align: center;
         }
@@ -826,7 +856,7 @@
 
         .stat-input-value:focus {
             outline: none;
-            border-color: #007aff;
+            border-color: #0000ff;
             box-shadow: 0 0 0 3px rgba(0, 122, 255, 0.1);
         }
 
@@ -869,7 +899,9 @@
     <div class="top-header">
         <div class="header-content">
             <a href="registro-partidos.html" class="logo">
-                <div class="logo-icon">X</div>
+                <div class="logo-icon">
+                    <img src="logo.svg" alt="Xisco Stats">
+                </div>
                 <span class="logo-text">Xisco Stats</span>
             </a>
             
@@ -919,7 +951,7 @@
                 </p>
                 
                 <div style="background: rgba(0, 122, 255, 0.05); border: 1px solid rgba(0, 122, 255, 0.15); border-radius: 12px; padding: 20px; margin-bottom: 20px; text-align: left;">
-                    <p style="color: #007aff; font-weight: 600; margin-bottom: 12px;">Formato del archivo Excel:</p>
+                    <p style="color: #0000ff; font-weight: 600; margin-bottom: 12px;">Formato del archivo Excel:</p>
                     <p style="color: #86868b; font-size: 0.9rem; margin-bottom: 8px;">El archivo debe tener las siguientes columnas (en cualquier orden):</p>
                     <ul style="color: #86868b; font-size: 0.9rem; margin-left: 20px; line-height: 1.6;">
                         <li><strong>Rival</strong> o <strong>Jugador 2</strong> - Nombre del oponente</li>
@@ -1017,7 +1049,7 @@
             
             <div style="background: rgba(0, 122, 255, 0.05); border: 1px solid rgba(0, 122, 255, 0.15); border-radius: 12px; padding: 20px; margin-bottom: 20px;">
                 <p style="color: #86868b; font-size: 0.9rem; margin-bottom: 12px;">
-                    <strong style="color: #007aff;">📊 Sincronización automática:</strong> Estos valores se calculan automáticamente desde los partidos registrados. Puedes editarlos manualmente para añadir partidos adicionales no registrados en el sistema.
+                    <strong style="color: #0000ff;">📊 Sincronización automática:</strong> Estos valores se calculan automáticamente desde los partidos registrados. Puedes editarlos manualmente para añadir partidos adicionales no registrados en el sistema.
                 </p>
             </div>
 
@@ -1026,22 +1058,22 @@
 
         <div class="main-card history-card">
             <div class="history-header">
-                <h2 class="section-title" style="margin: 0;">Historial de Partidos</h2>
-                <div style="display: flex; gap: 8px; flex-wrap: wrap;">
-                    <button class="btn-secondary" style="padding: 10px 20px; border-radius: 8px;" onclick="syncToGitHub()">
-                        Subir a Cloud
+                <h2 class="section-title">Historial de Partidos</h2>
+                <div class="history-actions">
+                    <button class="btn-secondary" onclick="syncToGitHub()" title="Subir a Cloud">
+                        ↑ Cloud
                     </button>
-                    <button class="btn-secondary" style="padding: 10px 20px; border-radius: 8px;" onclick="loadFromGitHub()">
-                        Descargar de Cloud
+                    <button class="btn-secondary" onclick="loadFromGitHub()" title="Descargar de Cloud">
+                        ↓ Cloud
                     </button>
-                    <button class="btn-secondary" style="padding: 10px 20px; border-radius: 8px;" onclick="syncWithDashboard()">
-                        Sincronizar Local
+                    <button class="btn-secondary" onclick="syncWithDashboard()" title="Sincronizar Local">
+                        ⟳ Sync
                     </button>
-                    <button class="btn-secondary" style="padding: 10px 20px; border-radius: 8px;" onclick="downloadData()">
-                        Descargar JSON
+                    <button class="btn-secondary" onclick="downloadData()" title="Descargar JSON">
+                        ⤓ JSON
                     </button>
-                    <button class="btn-danger" style="padding: 10px 20px; border-radius: 8px;" onclick="resetAllData()">
-                        Reiniciar
+                    <button class="btn-danger" onclick="resetAllData()" title="Reiniciar">
+                        ✕ Reset
                     </button>
                 </div>
             </div>
@@ -1379,7 +1411,7 @@
             container.innerHTML = '';
 
             const modalities = [
-                { key: 'bola8', title: 'Bola 8', color: '#007aff' },
+                { key: 'bola8', title: 'Bola 8', color: '#0000ff' },
                 { key: 'bola9', title: 'Bola 9', color: '#5856d6' },
                 { key: 'bola10', title: 'Bola 10', color: '#af52de' }
             ];
