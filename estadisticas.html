@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Estadísticas - Xisco</title>
+    <title>Estadísticas</title>
     <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
     <script>
         // Verificar sesión activa
@@ -23,8 +23,8 @@
 
         body {
             font-family: -apple-system, BlinkMacSystemFont, 'Inter', 'Segoe UI', sans-serif;
-            background: linear-gradient(135deg, #f5f7fa 0%, #e8ecf1 100%);
-            min-height: 100vh;
+background:#f3f3f3;           
+ min-height: 100vh;
             color: #1d1d1f;
             -webkit-font-smoothing: antialiased;
             -moz-osx-font-smoothing: grayscale;
@@ -43,7 +43,7 @@
         }
 
         .header-content {
-            max-width: 1400px;
+            max-width: 1200px;
             margin: 0 auto;
             padding: 16px 20px;
             display: flex;
@@ -96,11 +96,11 @@
         }
 
         .nav-link:hover {
-            background: rgba(0, 0, 0, 0.05);
+            background: rgba(0, 0, 0, 0.15);
         }
 
         .nav-link.active {
-            background: #0000ff;
+            background: #000;
             color: white;
         }
 
@@ -839,16 +839,15 @@
 
         .nav-link {
             display: inline-block;
-            padding: 12px 28px;
-            background: linear-gradient(135deg, #34c759, #30d158);
-            color: white;
+            padding: 8px 16px;
+            background: #fff;
+            color: #000;
             text-decoration: none;
             border-radius: 12px;
-            font-weight: 600;
+            font-weight: 500;
             font-size: 0.95rem;
-            box-shadow: 0 4px 12px rgba(52, 199, 89, 0.3);
-            transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
-        }
+			border: 1px solid transparent;
+          }
 
         .nav-link:hover {
             transform: translateY(-2px);
@@ -1018,9 +1017,9 @@
         <div class="header-content">
             <a href="registro-partidos.html" class="logo">
                 <div class="logo-icon">
-                    <img src="logo.svg" alt="Xisco Stats">
+                    <img src="logo.svg" alt="Pool Tracker">
                 </div>
-                <span class="logo-text">Xisco Stats</span>
+                <span class="logo-text">Pool Tracker</span>
             </a>
             
             <nav class="desktop-nav">
