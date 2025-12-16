@@ -3,6 +3,8 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
+         <link rel="icon" type="image/svg" href="favicon.svg">
+
     <title>Pool Match Analytics</title>
     <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
     			 <link rel="icon" type="image/jpg" href="favicon.jpg">
@@ -26,7 +28,7 @@
 
         body {
             font-family: -apple-system, BlinkMacSystemFont, 'Inter', 'Segoe UI', sans-serif;
-            background: linear-gradient(135deg, #f5f7fa 0%, #e8ecf1 100%);
+            background: #f3f3f3;
             min-height: 100vh;
             color: #1d1d1f;
             padding: 20px;
@@ -500,7 +502,7 @@
         }
 
         .modality-input-group {
-            background: rgba(0, 122, 255, 0.03);
+            background: #FFF);
             border: 1px solid rgba(0, 122, 255, 0.1);
             border-radius: 16px;
             padding: 24px;
@@ -509,7 +511,7 @@
         .modality-title {
             font-size: 1.25rem;
             font-weight: 600;
-            color: #007aff;
+            color: #000;
             margin-bottom: 20px;
             text-align: center;
             letter-spacing: -0.01em;
@@ -1471,17 +1473,17 @@ Escribe "BORRAR" para confirmar:`;
                     <p style="color: #007aff; font-weight: 600; margin-bottom: 8px;">📊 Partidos en el Sistema (ya incluidos arriba)</p>
                     <div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(150px, 1fr)); gap: 12px; margin-top: 12px;">
                         <div style="text-align: center;">
-                            <div style="font-size: 0.75rem; color: #86868b; text-transform: uppercase; letter-spacing: 0.05em;">Bola 8</div>
+                            <div style="font-size: 0.75rem; color: #000; text-transform: uppercase; letter-spacing: 0.05em;">Bola 8</div>
                             <div style="font-size: 1.25rem; font-weight: 700; color: #007aff;">${matchStats.bola8?.matchesPlayed || 0} partidos</div>
                             <div style="font-size: 0.9rem; color: #86868b;">${matchStats.bola8?.gamesPlayed || 0} partidas</div>
                         </div>
                         <div style="text-align: center;">
-                            <div style="font-size: 0.75rem; color: #86868b; text-transform: uppercase; letter-spacing: 0.05em;">Bola 9</div>
+                            <div style="font-size: 0.75rem; color: #000; text-transform: uppercase; letter-spacing: 0.05em;">Bola 9</div>
                             <div style="font-size: 1.25rem; font-weight: 700; color: #5856d6;">${matchStats.bola9?.matchesPlayed || 0} partidos</div>
                             <div style="font-size: 0.9rem; color: #86868b;">${matchStats.bola9?.gamesPlayed || 0} partidas</div>
                         </div>
                         <div style="text-align: center;">
-                            <div style="font-size: 0.75rem; color: #86868b; text-transform: uppercase; letter-spacing: 0.05em;">Bola 10</div>
+                            <div style="font-size: 0.75rem; color: #000; text-transform: uppercase; letter-spacing: 0.05em;">Bola 10</div>
                             <div style="font-size: 1.25rem; font-weight: 700; color: #af52de;">${matchStats.bola10?.matchesPlayed || 0} partidos</div>
                             <div style="font-size: 0.9rem; color: #86868b;">${matchStats.bola10?.gamesPlayed || 0} partidas</div>
                         </div>
