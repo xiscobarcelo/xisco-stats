@@ -2,10 +2,8 @@
 <html lang="es">
 <head>
     <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
-    <meta name="apple-mobile-web-app-capable" content="yes">
-    <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
-    <title>Acceso - Pool Tracker</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Acceso - Sistema Xisco</title>
     <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
     <style>
         * {
@@ -16,7 +14,7 @@
 
         body {
             font-family: 'Inter', -apple-system, BlinkMacSystemFont, sans-serif;
-            background: linear-gradient(135deg, #000 0%, #0000ff 100%);
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
             min-height: 100vh;
             display: flex;
             align-items: center;
@@ -31,14 +29,23 @@
             padding: 20px;
         }
 
-   
+        .lock-icon {
+            font-size: 4rem;
+            margin-bottom: 20px;
+            animation: pulse 2s infinite;
+        }
 
         @keyframes pulse {
             0%, 100% { opacity: 1; }
             50% { opacity: 0.7; }
         }
 
-       
+        .lock-title {
+            color: white;
+            font-size: 1.5rem;
+            font-weight: 600;
+            margin-bottom: 10px;
+        }
 
         .lock-subtitle {
             color: rgba(255, 255, 255, 0.8);
@@ -87,8 +94,9 @@
         }
 
         .key {
+            background: rgba(255, 255, 255, 0.2);
             backdrop-filter: blur(10px);
-            border: 2px solid rgba(255, 255, 255, 0.3);
+            border: 1px solid rgba(255, 255, 255, 0.3);
             border-radius: 50%;
             width: 80px;
             height: 80px;
@@ -101,20 +109,16 @@
             align-items: center;
             justify-content: center;
             user-select: none;
-            -webkit-user-select: none;
-            -webkit-tap-highlight-color: transparent;
-            touch-action: manipulation;
         }
 
         .key:hover {
-            background: rgba(255, 255, 255, 0.6);
+            background: rgba(255, 255, 255, 0.3);
             transform: scale(1.05);
         }
 
         .key:active {
             transform: scale(0.95);
             background: rgba(255, 255, 255, 0.4);
-            transition: all 0.1s ease;
         }
 
         .key.delete {
@@ -174,7 +178,8 @@
 </head>
 <body>
     <div class="lock-screen">
-      
+        <div class="lock-icon">🔒</div>
+        <h1 class="lock-title">Sistema de Xisco</h1>
         <p class="lock-subtitle">Introduce tu código PIN</p>
 
         <div class="pin-display">
@@ -200,15 +205,8 @@
         </div>
 
         <div class="error-message" id="errorMessage"></div>
-        
-        <!-- Debug info para iPhone -->
-        <div id="debugInfo" style="margin-top: 20px; padding: 12px; background: rgba(255, 255, 255, 0.1); border-radius: 8px; font-size: 0.8rem; color: rgba(255, 255, 255, 0.7); display: none;">
-            <div>PIN actual: <span id="debugPin">****</span></div>
-            <div>Dispositivo: <span id="debugDevice"></span></div>
-        </div>
 
         <a href="#" class="config-link" onclick="showConfigPrompt(); return false;">⚙️ Cambiar PIN</a>
-        <a href="#" class="config-link" onclick="toggleDebug(); return false;" style="display: block; margin-top: 10px;">🔍 Debug</a>
     </div>
 
     <script>
@@ -217,7 +215,6 @@
         let currentPin = '';
         let attempts = 0;
         const maxAttempts = 5;
-        let isProcessing = false; // Evitar doble procesamiento
 
         // Inicializar
         document.addEventListener('DOMContentLoaded', () => {
@@ -232,25 +229,19 @@
                 setupInitialPin();
             }
 
-            // Soporte para teclado físico (solo desktop)
-            if (!isMobileDevice()) {
-                document.addEventListener('keydown', (e) => {
-                    if (e.key >= '0' && e.key <= '9') {
-                        addDigit(e.key);
-                    } else if (e.key === 'Backspace' || e.key === 'Delete') {
-                        deleteDigit();
-                    } else if (e.key === 'Enter') {
-                        if (currentPin.length === 4) {
-                            verifyPin();
-                        }
+            // Soporte para teclado físico
+            document.addEventListener('keydown', (e) => {
+                if (e.key >= '0' && e.key <= '9') {
+                    addDigit(e.key);
+                } else if (e.key === 'Backspace' || e.key === 'Delete') {
+                    deleteDigit();
+                } else if (e.key === 'Enter') {
+                    if (currentPin.length === 4) {
+                        verifyPin();
                     }
-                });
-            }
+                }
+            });
         });
-
-        function isMobileDevice() {
-            return /iPhone|iPad|iPod|Android/i.test(navigator.userAgent);
-        }
 
         function setupInitialPin() {
             const pin = prompt('👋 Bienvenido! Establece tu PIN de 4 dígitos para proteger el sistema:\n\n(Guárdalo en un lugar seguro)');
@@ -265,38 +256,20 @@
         }
 
         function addDigit(digit) {
-            if (isProcessing) return;
-            
             if (currentPin.length < 4) {
                 currentPin += digit;
                 updateDisplay();
                 
-                // Vibración háptica en móvil si está disponible
-                if (navigator.vibrate) {
-                    navigator.vibrate(10);
-                }
-                
                 if (currentPin.length === 4) {
-                    isProcessing = true;
-                    setTimeout(() => {
-                        verifyPin();
-                        isProcessing = false;
-                    }, 300);
+                    setTimeout(verifyPin, 300);
                 }
             }
         }
 
         function deleteDigit() {
-            if (isProcessing) return;
-            
             if (currentPin.length > 0) {
                 currentPin = currentPin.slice(0, -1);
                 updateDisplay();
-                
-                // Vibración háptica en móvil
-                if (navigator.vibrate) {
-                    navigator.vibrate(10);
-                }
             }
         }
 
@@ -309,33 +282,10 @@
                     dot.classList.remove('filled');
                 }
             }
-            
-            // Actualizar debug si está visible
-            const debugPin = document.getElementById('debugPin');
-            if (debugPin && document.getElementById('debugInfo').style.display !== 'none') {
-                debugPin.textContent = currentPin || '****';
-            }
-        }
-
-        function toggleDebug() {
-            const debugInfo = document.getElementById('debugInfo');
-            const debugDevice = document.getElementById('debugDevice');
-            
-            if (debugInfo.style.display === 'none') {
-                debugInfo.style.display = 'block';
-                debugDevice.textContent = navigator.userAgent.includes('iPhone') ? 'iPhone' : 
-                                         navigator.userAgent.includes('Android') ? 'Android' : 'Desktop';
-            } else {
-                debugInfo.style.display = 'none';
-            }
         }
 
         function verifyPin() {
             const savedPin = localStorage.getItem(PIN_KEY);
-            
-            console.log('PIN introducido:', currentPin);
-            console.log('PIN guardado:', savedPin);
-            console.log('¿Coinciden?', currentPin === savedPin);
             
             if (currentPin === savedPin) {
                 // PIN correcto
