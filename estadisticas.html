@@ -1115,6 +1115,7 @@
             <nav class="desktop-nav">
                 <a href="registro-partidos.html" class="nav-link">Registro</a>
                 <a href="estadisticas.html" class="nav-link active">Estadísticas</a>
+				<a href="estadisticas.html/#historial" class="nav-link active">Historial</a>
                 <a href="config-github.html" class="nav-link">Sincronización</a>
                 <a href="#" class="nav-link danger" onclick="resetAllDataDashboard(); return false;">Reiniciar</a>
                 <a href="#" class="nav-link" onclick="logoutDashboard(); return false;">Salir</a>
@@ -1136,6 +1137,7 @@
         <nav class="mobile-nav">
             <a href="registro-partidos.html" class="nav-link">Registro</a>
             <a href="estadisticas.html" class="nav-link active">Estadísticas</a>
+				<a href="estadisticas.html/#historial" class="nav-link active">Historial</a>
             <a href="config-github.html" class="nav-link">Configuración</a>
             <a href="#" class="nav-link danger" onclick="resetAllDataDashboard(); return false;">Reiniciar Datos</a>
             <a href="#" class="nav-link" onclick="logoutDashboard(); return false;">Cerrar Sesión</a>
@@ -1305,7 +1307,7 @@
 
             <div class="section">
                 <div class="section-header">
-                    <h2 class="section-title">Historial</h2>
+                    <h2 class="section-title" id="historial">Historial</h2>
                     <p class="section-description">Registro completo de partidos</p>
                 </div>
                 
@@ -1329,12 +1331,7 @@
 
         // ⚙️ CONFIGURACIÓN HARDCODEADA DE GITHUB
         // Rellena estos datos con tus credenciales para no tener que configurar cada vez
-        const HARDCODED_GITHUB_CONFIG = {
-            username: 'xiscobarcelo',
-            repo: 'xisco-stats',
-            token: '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'
-        };
-        
+
         // Función para obtener la URL del data.json
         function getDataURL() {
             // Primero intentar usar config hardcodeada
