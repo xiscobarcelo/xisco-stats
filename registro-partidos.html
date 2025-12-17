@@ -1887,9 +1887,7 @@
                     ${(currentPage - 1) * itemsPerPage + 1}-${Math.min(currentPage * itemsPerPage, totalMatches)} de ${totalMatches}
                 </div>
                 <div class="pagination-buttons">
-                    <button class="pagination-btn" onclick="goToPage(1)" ${currentPage === 1 ? 'disabled' : ''} title="Primera página">
-                        ⟨⟨
-                    </button>
+                   
                     <button class="pagination-btn" onclick="goToPage(${currentPage - 1})" ${currentPage === 1 ? 'disabled' : ''} title="Anterior">
                         ‹
                     </button>
@@ -1899,9 +1897,7 @@
                     <button class="pagination-btn" onclick="goToPage(${currentPage + 1})" ${currentPage === totalPages ? 'disabled' : ''} title="Siguiente">
                         ›
                     </button>
-                    <button class="pagination-btn" onclick="goToPage(${totalPages})" ${currentPage === totalPages ? 'disabled' : ''} title="Última página">
-                        ⟩⟩
-                    </button>
+                   
                 </div>
             `;
 
