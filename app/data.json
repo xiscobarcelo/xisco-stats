@@ -1671,6 +1671,17 @@
       "modality": "Bola 10",
       "date": "2025-12-17",
       "id": 1765964747011
+    },
+    {
+      "player1": "Xisco",
+      "player2": "Xxxxx",
+      "score1": "10",
+      "score2": "1",
+      "material1": "Velasco+Revo12.9",
+      "material2": "-",
+      "modality": "Bola 10",
+      "date": "2025-12-17",
+      "id": 1765964954917
     }
   ],
   "players": [
@@ -1679,7 +1690,8 @@
     "Tolo",
     "Borja",
     "Xisco M",
-    "PEPE"
+    "PEPE",
+    "Xxxxx"
   ],
   "materials": [
     "Velasco+Revo12.9",
@@ -1700,10 +1712,10 @@
       "gamesWon": 202
     },
     "bola10": {
-      "matchesPlayed": 123,
-      "matchesWon": 78,
-      "gamesPlayed": 1536,
-      "gamesWon": 843
+      "matchesPlayed": 124,
+      "matchesWon": 79,
+      "gamesPlayed": 1547,
+      "gamesWon": 853
     }
   }
 }
