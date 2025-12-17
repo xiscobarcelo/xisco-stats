@@ -992,6 +992,7 @@
             <nav class="desktop-nav">
                 <a href="registro-partidos.html" class="nav-link active">Registro</a>
                 <a href="estadisticas.html" class="nav-link">Estadísticas</a>
+				<a href="estadisticas.html/#historial" class="nav-link">Historial</a>
                 <a href="config-github.html" class="nav-link">Configuración</a>
                 <a href="#" class="nav-link danger" onclick="resetAllDataFromStats(); return false;">Reiniciar</a>
                 <a href="#" class="nav-link" onclick="logout(); return false;">Salir</a>
@@ -1013,6 +1014,7 @@
         <nav class="mobile-nav">
             <a href="registro-partidos.html" class="nav-link active">Registro</a>
             <a href="estadisticas.html" class="nav-link">Estadísticas</a>
+			<a href="estadisticas.html/#historial" class="nav-link">Historial</a>
             <a href="config-github.html" class="nav-link">Configuración</a>
             <a href="#" class="nav-link danger" onclick="resetAllDataFromStats(); return false;">Reiniciar Datos</a>
             <a href="#" class="nav-link" onclick="logout(); return false;">Cerrar Sesión</a>
@@ -1217,12 +1219,7 @@
 
         function getGitHubConfig() {
             // Primero intentar usar config hardcodeada si existe
-            if (HARDCODED_GITHUB_CONFIG.username && 
-                HARDCODED_GITHUB_CONFIG.repo && 
-                HARDCODED_GITHUB_CONFIG.token) {
-                return HARDCODED_GITHUB_CONFIG;
-            }
-            
+     
             // Si no, usar localStorage
             const config = localStorage.getItem(GITHUB_CONFIG_KEY);
             return config ? JSON.parse(config) : null;
