@@ -7,12 +7,14 @@
     <link rel="icon" type="image/svg+xml" href="favicon.svg">
     <link rel="alternate icon" href="favicon.ico">
     <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
-    <script>
+     <script>
         // Verificar sesión activa
         if (!sessionStorage.getItem('xisco_session_active')) {
             window.location.href = 'index.html';
         }
     </script>
+	
+	
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
@@ -99,6 +101,7 @@
 
         .nav-link:hover {
             background: rgba(0, 0, 0, 0.05);
+			color:#000;
         }
 
         .nav-link.active {
@@ -197,7 +200,7 @@
         }
 
         .container {
-            max-width: 1200px;
+            max-width: 1400px;
             margin: 0 auto;
             padding: 20px;
         }
@@ -304,7 +307,7 @@
             left: 0;
             right: 0;
             height: 3px;
-            background: linear-gradient(90deg, #3b82f6, #5856d6);
+            background: linear-gradient(90deg, #3b82f6, #0000ff);
             opacity: 0;
             transition: opacity 0.3s;
         }
@@ -383,6 +386,16 @@
                         0 2px 8px rgba(0, 0, 0, 0.04);
             transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
         }
+		  .chart-card1 {
+            background: none;
+           
+            border:none
+            padding: 0px;
+            box-shadow: none
+        }
+		
+		
+		
 
         .chart-card:hover {
             box-shadow: 0 16px 48px rgba(0, 0, 0, 0.08),
@@ -400,7 +413,7 @@
         .chart-card.full-width {
             grid-column: 1 / -1;
         }
-
+	
         /* Table styling */
         .table-container {
             overflow-x: auto;
@@ -682,7 +695,7 @@
             display: grid;
             grid-template-columns: repeat(auto-fit, minmax(180px, 1fr));
             gap: 16px;
-            margin-bottom: 24px;
+            margin-bottom: 84px;
         }
 
         .comparison-stat {
@@ -706,11 +719,11 @@
             display: flex;
             justify-content: space-between;
             align-items: center;
-            gap: 12px;
+            gap: 8px;
         }
 
         .comparison-value {
-            font-size: 1.5rem;
+            font-size: 1.2rem;
             font-weight: 700;
             flex: 1;
         }
@@ -721,7 +734,7 @@
         }
 
         .comparison-value.player2 {
-            color: #5856d6;
+            color: #0000ff;
             text-align: right;
         }
 
@@ -736,11 +749,11 @@
         }
 
         .comparison-winner::after {
-            content: '👑';
-            position: absolute;
+            content: '✔️';
+            position: relative;
             top: -8px;
             right: -8px;
-            font-size: 1rem;
+            font-size: 0.7rem;
         }
 
         .no-comparison {
@@ -773,7 +786,7 @@
         }
 
         .modality-input-group {
-            background: rgba(0, 0, 0, 0.03);
+            background: rgba(0, 0, 0, 0.01);
             border: 1px solid rgba(0, 0, 0, 0.1);
             border-radius: 16px;
             padding: 24px;
@@ -820,6 +833,7 @@
             color: #1d1d1f;
             transition: all 0.2s;
             font-family: inherit;
+			width:100%;
         }
 
         .input-field input:focus {
@@ -884,10 +898,11 @@
             display: grid;
             grid-template-columns: repeat(auto-fit, minmax(150px, 1fr));
             gap: 16px;
+			margin-bottom: 80px;
         }
 
         .modality-stat-card {
-            background: rgba(0, 0, 0, 0.05);
+            background: rgba(0, 0, 0, 0.01);
             border: 1px solid rgba(0, 0, 0, 0.15);
             border-radius: 12px;
             padding: 16px;
@@ -925,24 +940,6 @@
             .action-btn {
                 width: 100%;
             }
-        }
-
-        .nav-link {
-            display: inline-block;
-            padding: 12px 28px;
-            background: linear-gradient(135deg, #34c759, #30d158);
-            color: white;
-            text-decoration: none;
-            border-radius: 12px;
-            font-weight: 600;
-            font-size: 0.95rem;
-            box-shadow: 0 4px 12px rgba(52, 199, 89, 0.3);
-            transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
-        }
-
-        .nav-link:hover {
-            transform: translateY(-2px);
-            box-shadow: 0 6px 20px rgba(52, 199, 89, 0.4);
         }
 
         .btn-danger-link {
@@ -1116,7 +1113,7 @@
             <nav class="desktop-nav">
                 <a href="registro-partidos.html" class="nav-link">Registro</a>
                 <a href="estadisticas.html" class="nav-link active">Estadísticas</a>
-                <a href="config-github.html" class="nav-link">Configuración</a>
+                <a href="config-github.html" class="nav-link">Sincronización</a>
                 <a href="#" class="nav-link danger" onclick="resetAllDataDashboard(); return false;">Reiniciar</a>
                 <a href="#" class="nav-link" onclick="logoutDashboard(); return false;">Salir</a>
             </nav>
@@ -1784,23 +1781,23 @@ Escribe "BORRAR" para confirmar:`;
                 (matchStats.bola10?.gamesPlayed || 0);
 
             if (totalAutoMatches > 0) {
-                autoDetectedInfo.style.cssText = 'background: rgba(0, 0, 0, 0.1); border: 1px solid rgba(0, 0, 0, 0.3); border-radius: 12px; padding: 16px; margin-bottom: 16px;';
+                autoDetectedInfo.style.cssText = 'background: rgb(0,0,0,0); border: 1px solid rgba(0, 0, 0, 0); border-radius: 12px; padding: 16px; margin-bottom: 36px; margin-top:20px;';
                 autoDetectedInfo.innerHTML = `
-                    <p style="color: #3b82f6; font-weight: 600; margin-bottom: 8px;">📊 Partidos en el Sistema (ya incluidos arriba)</p>
-                    <div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(150px, 1fr)); gap: 12px; margin-top: 12px;">
+                    <p style="color: #000; font-weight: 600; margin-bottom: 8px;">📊 Partidos en el Sistema (ya incluidos arriba)</p>
+                    <div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(150px, 1fr)); gap: 12px; margin-top: 32px;">
                         <div style="text-align: center;">
-                            <div style="font-size: 0.75rem; color: #86868b; text-transform: uppercase; letter-spacing: 0.05em;">Bola 8</div>
-                            <div style="font-size: 1.25rem; font-weight: 700; color: #3b82f6;">${matchStats.bola8?.matchesPlayed || 0} partidos</div>
+                            <div style="font-size: 0.75rem; color: #000; text-transform: uppercase; letter-spacing: 0.05em;">Bola 8</div>
+                            <div style="font-size: 1.25rem; font-weight: 700; color: #000;">${matchStats.bola8?.matchesPlayed || 0} partidos</div>
                             <div style="font-size: 0.9rem; color: #86868b;">${matchStats.bola8?.gamesPlayed || 0} partidas</div>
                         </div>
                         <div style="text-align: center;">
-                            <div style="font-size: 0.75rem; color: #86868b; text-transform: uppercase; letter-spacing: 0.05em;">Bola 9</div>
-                            <div style="font-size: 1.25rem; font-weight: 700; color: #5856d6;">${matchStats.bola9?.matchesPlayed || 0} partidos</div>
+                            <div style="font-size: 0.75rem; color: #000; text-transform: uppercase; letter-spacing: 0.05em;">Bola 9</div>
+                            <div style="font-size: 1.25rem; font-weight: 700; color: #000;">${matchStats.bola9?.matchesPlayed || 0} partidos</div>
                             <div style="font-size: 0.9rem; color: #86868b;">${matchStats.bola9?.gamesPlayed || 0} partidas</div>
                         </div>
                         <div style="text-align: center;">
-                            <div style="font-size: 0.75rem; color: #86868b; text-transform: uppercase; letter-spacing: 0.05em;">Bola 10</div>
-                            <div style="font-size: 1.25rem; font-weight: 700; color: #af52de;">${matchStats.bola10?.matchesPlayed || 0} partidos</div>
+                            <div style="font-size: 0.75rem; color: #000; text-transform: uppercase; letter-spacing: 0.05em;">Bola 10</div>
+                            <div style="font-size: 1.25rem; font-weight: 700; color: #000;">${matchStats.bola10?.matchesPlayed || 0} partidos</div>
                             <div style="font-size: 0.9rem; color: #86868b;">${matchStats.bola10?.gamesPlayed || 0} partidas</div>
                         </div>
                     </div>
@@ -1953,7 +1950,7 @@ Escribe "BORRAR" para confirmar:`;
 
         function createModalityComparisonChart(modalities, container) {
             const chartDiv = document.createElement('div');
-            chartDiv.className = 'chart-card';
+            chartDiv.className = 'chart-card1';
             chartDiv.innerHTML = '<h3 class="chart-title">Partidos por Modalidad</h3><canvas></canvas>';
             container.appendChild(chartDiv);
 
@@ -2005,7 +2002,7 @@ Escribe "BORRAR" para confirmar:`;
 
         function createWinRateChart(modalities, container) {
             const chartDiv = document.createElement('div');
-            chartDiv.className = 'chart-card';
+            chartDiv.className = 'chart-card1';
             chartDiv.innerHTML = '<h3 class="chart-title">Win Rate por Modalidad</h3><canvas></canvas>';
             container.appendChild(chartDiv);
 
@@ -2071,7 +2068,7 @@ Escribe "BORRAR" para confirmar:`;
 
         function createModalityDistributionChart(modalities, container) {
             const chartDiv = document.createElement('div');
-            chartDiv.className = 'chart-card';
+            chartDiv.className = 'chart-card1';
             chartDiv.innerHTML = '<h3 class="chart-title">Distribución de Partidas</h3><canvas></canvas>';
             container.appendChild(chartDiv);
 
@@ -2741,7 +2738,7 @@ Escribe "BORRAR" para confirmar:`;
 
             // Gráfico de barras comparativo
             const barChartDiv = document.createElement('div');
-            barChartDiv.className = 'chart-card';
+            barChartDiv.className = 'chart-card1';
             barChartDiv.innerHTML = '<h3 class="chart-title">Victorias y Derrotas</h3><canvas></canvas>';
             container.appendChild(barChartDiv);
 
@@ -2800,7 +2797,7 @@ Escribe "BORRAR" para confirmar:`;
 
             // Gráfico de radar comparativo
             const radarChartDiv = document.createElement('div');
-            radarChartDiv.className = 'chart-card';
+            radarChartDiv.className = 'chart-card1';
             radarChartDiv.innerHTML = '<h3 class="chart-title">Perfil de Rendimiento</h3><canvas></canvas>';
             container.appendChild(radarChartDiv);
 
@@ -2835,7 +2832,7 @@ Escribe "BORRAR" para confirmar:`;
                         backgroundColor: 'rgba(88, 86, 214, 0.2)',
                         borderColor: 'rgba(88, 86, 214, 1)',
                         borderWidth: 2,
-                        pointBackgroundColor: '#5856d6',
+                        pointBackgroundColor: '#0000ff',
                         pointBorderColor: '#fff',
                         pointBorderWidth: 2
                     }]
@@ -2874,7 +2871,7 @@ Escribe "BORRAR" para confirmar:`;
 
             // Gráfico de partidas
             const scoresChartDiv = document.createElement('div');
-            scoresChartDiv.className = 'chart-card full-width';
+            scoresChartDiv.className = 'chart-card1 full-width';
             scoresChartDiv.innerHTML = '<h3 class="chart-title">Comparativa de Partidas</h3><canvas></canvas>';
             container.appendChild(scoresChartDiv);
 
