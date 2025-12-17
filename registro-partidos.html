@@ -10,7 +10,7 @@
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
     <script src="https://cdnjs.cloudflare.com/ajax/libs/xlsx/0.18.5/xlsx.full.min.js"></script>
-    <script>
+   <script>
         // Verificar sesión activa
         if (!sessionStorage.getItem('xisco_session_active')) {
             window.location.href = 'index.html';
@@ -45,7 +45,7 @@
         }
 
         .header-content {
-            max-width: 1200px;
+            max-width: 1400px;
             margin: 0 auto;
             padding: 16px 20px;
             display: flex;
@@ -199,7 +199,7 @@
         }
 
         .container {
-            max-width: 1200px;
+            max-width: 1400px;
             margin: 0 auto;
             padding: 20px;
         }
@@ -292,7 +292,7 @@
             max-height: 0;
             overflow: hidden;
             transition: max-height 0.3s ease;
-            background: rgba(0, 0, 0, 0.03);
+            background: rgba(0, 0, 0, 0.01);
             border: 1px solid rgba(0, 0, 0, 0.1);
             border-radius: 8px;
             margin-top: 8px;
@@ -450,8 +450,8 @@
 
         .material-chip {
             padding: 10px 20px;
-            background: rgba(0, 122, 255, 0.1);
-            border: 2px solid rgba(0, 122, 255, 0.2);
+            background: rgba(0, 0, 0, 0.01);
+            border: 2px solid rgba(0, 0, 0, 0.118);
             border-radius: 24px;
             font-size: 0.9rem;
             font-weight: 500;
@@ -461,8 +461,8 @@
         }
 
         .material-chip:hover {
-            background: rgba(0, 122, 255, 0.2);
-            border-color: rgba(0, 122, 255, 0.4);
+            background: rgba(0, 0, 0, 0.2);
+            border-color: rgba(0, 0, 0, 0.4);
         }
 
         .material-chip.selected {
@@ -483,8 +483,8 @@
 
         .btn-add-material {
             padding: 14px 20px;
-            background: rgba(0, 122, 255, 0.1);
-            border: 1px solid rgba(0, 122, 255, 0.3);
+            background: rgba(0, 0, 0, 0.01);
+            border: 1px solid rgba(0, 0, 0, 0.18);
             border-radius: 12px;
             font-size: 0.9rem;
             font-weight: 600;
@@ -495,7 +495,7 @@
         }
 
         .btn-add-material:hover {
-            background: rgba(0, 122, 255, 0.2);
+            background: rgba(0, 0, 0, 0.2);
         }
 
         .actions {
@@ -890,7 +890,7 @@
         .modality-stat-title {
             font-size: 1.25rem;
             font-weight: 700;
-            color: #000000;
+            color: #000000!important;
             margin-bottom: 16px;
             text-align: center;
         }
@@ -944,8 +944,8 @@
         }
 
         .auto-calculated {
-            background: rgba(52, 199, 89, 0.1) !important;
-            border-color: rgba(52, 199, 89, 0.3) !important;
+            background: rgba(0, 0, 0, 0.02) !important;
+            border-color: rgba(0, 0, 0, 0.04) !important;
         }
 
         @media (max-width: 768px) {
@@ -1102,7 +1102,7 @@
                     <div class="material-chips" id="materialChips"></div>
                     <div class="add-material-input">
                         <input type="text" id="newMaterial" placeholder="Añadir nuevo material">
-                        <button type="button" class="btn-add-material" onclick="addMaterial()">+ Añadir</button>
+                        <button type="button" class="btn-add-material" onclick="addMaterial()">+</button>
                     </div>
                 </div>
 
@@ -1125,8 +1125,8 @@
                 </div>
 
                 <div class="actions">
-                    <button type="submit" class="btn btn-primary">💾 Guardar Partido</button>
-                    <button type="button" class="btn btn-secondary" onclick="resetForm()">🔄 Limpiar</button>
+                    <button type="submit" class="btn btn-primary">Guardar Partido</button>
+                    <button type="button" class="btn btn-secondary" onclick="resetForm()">⟳ Limpiar</button>
                 </div>
             </form>
         </div>
@@ -1139,7 +1139,7 @@
                 </button>
             </div>
             
-            <div style="background: rgba(0, 122, 255, 0.05); border: 1px solid rgba(0, 122, 255, 0.15); border-radius: 12px; padding: 20px; margin-bottom: 20px;">
+            <div style="background: rgba(0, 0, 0, 0.01); border: 1px solid rgba(0, 0, 0, 0.011); border-radius: 12px; padding: 20px; margin-bottom: 20px;">
                 <p style="color: #86868b; font-size: 0.9rem; margin-bottom: 12px;">
                     <strong style="color: #000000;">📊 Sincronización automática:</strong> Estos valores se calculan automáticamente desde los partidos registrados. Puedes editarlos manualmente para añadir partidos adicionales no registrados en el sistema.
                 </p>
