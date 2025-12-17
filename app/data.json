@@ -1704,17 +1704,6 @@
       "modality": "Bola 10",
       "date": "2025-12-17",
       "id": 1765968930871
-    },
-    {
-      "player1": "Xisco",
-      "player2": "Test1",
-      "score1": "6",
-      "score2": "5",
-      "material1": "Bear+Centro",
-      "material2": "-",
-      "modality": "Bola 9",
-      "date": "2025-12-17",
-      "id": 1765969490416
     }
   ],
   "players": [
@@ -1745,10 +1734,10 @@
       "gamesWon": 0
     },
     "bola9": {
-      "matchesPlayed": 32,
-      "matchesWon": 22,
-      "gamesPlayed": 403,
-      "gamesWon": 220
+      "matchesPlayed": 31,
+      "matchesWon": 21,
+      "gamesPlayed": 392,
+      "gamesWon": 214
     },
     "bola10": {
       "matchesPlayed": 124,
