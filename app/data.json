@@ -1641,7 +1641,7 @@
     },
     {
       "player1": "Xisco",
-      "player2": "Tolo",
+      "player2": "Tol",
       "score1": "7",
       "score2": "2",
       "material1": "Lucasi+Revo12.9",
@@ -1668,7 +1668,8 @@
     "Tolo",
     "Borja",
     "Xisco M",
-    "PEPE"
+    "PEPE",
+    "Tol"
   ],
   "materials": [
     "Velasco+Revo12.9",
