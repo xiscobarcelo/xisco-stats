@@ -1685,14 +1685,14 @@
     },
     {
       "player1": "Xisco",
-      "player2": "xesc",
+      "player2": "jon",
       "score1": "1",
-      "score2": "0",
+      "score2": "1",
       "material1": "Bear+Centro",
       "material2": "-",
-      "modality": "Bola 9",
+      "modality": "Bola 10",
       "date": "2025-12-17",
-      "id": 1765965442302
+      "id": 1765965474623
     }
   ],
   "players": [
@@ -1703,7 +1703,7 @@
     "Xisco M",
     "PEPE",
     "Willy",
-    "xesc"
+    "jon"
   ],
   "materials": [
     "Velasco+Revo12.9",
@@ -1718,16 +1718,16 @@
       "gamesWon": 0
     },
     "bola9": {
-      "matchesPlayed": 31,
-      "matchesWon": 22,
-      "gamesPlayed": 382,
-      "gamesWon": 210
+      "matchesPlayed": 30,
+      "matchesWon": 21,
+      "gamesPlayed": 381,
+      "gamesWon": 209
     },
     "bola10": {
-      "matchesPlayed": 123,
+      "matchesPlayed": 124,
       "matchesWon": 78,
-      "gamesPlayed": 1536,
-      "gamesWon": 843
+      "gamesPlayed": 1538,
+      "gamesWon": 844
     }
   }
 }
