@@ -1682,17 +1682,6 @@
       "modality": "Bola 9",
       "date": "2025-12-17",
       "id": 1765965235592
-    },
-    {
-      "player1": "Xisco",
-      "player2": "Hfyfhd",
-      "score1": "2",
-      "score2": "1",
-      "material1": "Velasco+Revo12.9",
-      "material2": "-",
-      "modality": "Bola 10",
-      "date": "2025-12-17",
-      "id": 1765965565715
     }
   ],
   "players": [
@@ -1724,10 +1713,10 @@
       "gamesWon": 209
     },
     "bola10": {
-      "matchesPlayed": 124,
-      "matchesWon": 79,
-      "gamesPlayed": 1539,
-      "gamesWon": 845
+      "matchesPlayed": 123,
+      "matchesWon": 78,
+      "gamesPlayed": 1536,
+      "gamesWon": 843
     }
   }
 }
