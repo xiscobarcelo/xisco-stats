@@ -1718,14 +1718,14 @@
     },
     {
       "player1": "Xisco",
-      "player2": "test2",
+      "player2": "test3",
       "score1": "2",
-      "score2": "1",
-      "material1": "Lucasi+Revo12.9",
+      "score2": "2",
+      "material1": "Bear+Centro",
       "material2": "-",
-      "modality": "Bola 8",
+      "modality": "Bola 9",
       "date": "2025-12-17",
-      "id": 1765969539874
+      "id": 1765969574490
     }
   ],
   "players": [
@@ -1741,7 +1741,7 @@
     "Hyhtjyytytyyyuu",
     "Teiieie",
     "Test1",
-    "test2"
+    "test3"
   ],
   "materials": [
     "Velasco+Revo12.9",
@@ -1750,16 +1750,16 @@
   ],
   "modalityStats": {
     "bola8": {
-      "matchesPlayed": 1,
-      "matchesWon": 1,
-      "gamesPlayed": 3,
-      "gamesWon": 2
+      "matchesPlayed": 0,
+      "matchesWon": 0,
+      "gamesPlayed": 0,
+      "gamesWon": 0
     },
     "bola9": {
-      "matchesPlayed": 32,
+      "matchesPlayed": 33,
       "matchesWon": 22,
-      "gamesPlayed": 403,
-      "gamesWon": 220
+      "gamesPlayed": 407,
+      "gamesWon": 222
     },
     "bola10": {
       "matchesPlayed": 124,
