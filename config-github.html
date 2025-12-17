@@ -4,7 +4,7 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Configuración GitHub</title>
-     <link rel="icon" type="image/svg" href="file:///Macintosh HD/Users/xiscobarcelo/Dropbox/suno/pool/POOL APP/V7 con pin/con paginacion 100 partidos/SUBIDO A GITHUB/CSS/favicon.svg">
+				 <link rel="icon" type="image/svg" href="favicon.svg">
 
     <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
     <style>
@@ -16,7 +16,7 @@
 
         body {
             font-family: 'Inter', -apple-system, BlinkMacSystemFont, sans-serif;
-            background: linear-gradient(135deg, #333 0%, #f3f3f3 100%);
+            background: linear-gradient(135deg, #f3f3f3 0%, #f3f3f3 100%);
             min-height: 100vh;
             display: flex;
             align-items: center;
@@ -56,7 +56,7 @@
 
         .step-number {
             display: inline-block;
-            background: #007aff;
+            background: #000;
             color: white;
             width: 32px;
             height: 32px;
@@ -105,7 +105,7 @@
 
         .input-field:focus {
             outline: none;
-            border-color: #007aff;
+            border-color: #000;
         }
 
         .input-field.token {
@@ -126,7 +126,7 @@
         }
 
         .btn-primary {
-            background: #0000ff;
+            background: #000;
             color: white;
         }
 
@@ -190,7 +190,7 @@
         }
 
         .link {
-            color: #007aff;
+            color: #000;
             text-decoration: none;
             font-weight: 600;
         }
@@ -238,7 +238,7 @@
         <div class="alert alert-error" id="alertError"></div>
 
         <div id="currentConfig" style="display: none;" class="current-config">
-            <h3 style="margin-bottom: 12px; color: #007aff;">✅ Configuración actual</h3>
+            <h3 style="margin-bottom: 12px; color: #000;">✅ Configuración actual</h3>
             <div class="config-item">
                 <span class="config-label">Usuario:</span>
                 <span class="config-value" id="currentUsername"></span>
@@ -287,9 +287,9 @@
             </div>
         </div>
 
-        <button class="btn btn-primary" onclick="saveConfig()">💾 Guardar Configuración</button>
+        <button class="btn btn-primary" onclick="saveConfig()">Guardar Configuración</button>
         <button class="btn btn-secondary" onclick="testConnection()">🔍 Probar Conexión</button>
-        <button class="btn btn-secondary" onclick="clearConfig()">🗑️ Borrar Configuración</button>
+        <button class="btn btn-secondary" onclick="clearConfig()">Borrar Configuración</button>
         <button class="btn btn-secondary" onclick="goBack()">← Volver</button>
     </div>
 
