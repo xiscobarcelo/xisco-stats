@@ -1686,7 +1686,7 @@
     {
       "player1": "Xisco",
       "player2": "Adrian",
-      "score1": "5",
+      "score1": "4",
       "score2": "6",
       "material1": "Bear+Centro",
       "material2": "-",
@@ -1725,8 +1725,8 @@
     "bola9": {
       "matchesPlayed": 31,
       "matchesWon": 21,
-      "gamesPlayed": 392,
-      "gamesWon": 214
+      "gamesPlayed": 391,
+      "gamesWon": 213
     },
     "bola10": {
       "matchesPlayed": 123,
