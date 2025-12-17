@@ -1663,9 +1663,9 @@
     },
     {
       "player1": "Xisco",
-      "player2": "PEPE",
-      "score1": "11",
-      "score2": "1",
+      "player2": "Xisco M",
+      "score1": "7",
+      "score2": "2",
       "material1": "Lucasi+Revo12.9",
       "material2": "-",
       "modality": "Bola 10",
@@ -1702,8 +1702,8 @@
     "bola10": {
       "matchesPlayed": 123,
       "matchesWon": 78,
-      "gamesPlayed": 1539,
-      "gamesWon": 847
+      "gamesPlayed": 1536,
+      "gamesWon": 843
     }
   }
 }
