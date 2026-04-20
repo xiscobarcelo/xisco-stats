@@ -1,3 +1,15 @@
 {
-  "events": []
+  "events": [
+    {
+      "id": "mo6zxzz4ssyzim9os3l",
+      "name": "Open Nacional 9-Ball",
+      "dateStart": "2026-04-15",
+      "dateEnd": "2026-04-17",
+      "time": "10:00",
+      "venue": "Club Billar Palma",
+      "mode": "9-Ball",
+      "status": "proxima",
+      "notes": "Inscripción 40 €. Doble eliminación."
+    }
+  ]
 }
