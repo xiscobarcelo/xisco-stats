@@ -1,0 +1,37 @@
+{
+  "events": [
+    {
+      "id": "mo6zxzz4ssyzim9os3l",
+      "name": "Open Nacional 9-Ball",
+      "dateStart": "2026-04-15",
+      "dateEnd": "2026-04-17",
+      "time": "10:00",
+      "venue": "Club Billar Palma",
+      "mode": "9-Ball",
+      "status": "proxima",
+      "notes": "Inscripción 40 €. Doble eliminación."
+    },
+    {
+      "id": "mo6zxzz5ha8o7ij5v1",
+      "name": "Liga Local 8-Ball",
+      "dateStart": "2026-04-08",
+      "dateEnd": "2026-04-08",
+      "time": "17:00",
+      "venue": "Bar Salón Centro",
+      "mode": "8-Ball",
+      "status": "en-curso",
+      "notes": ""
+    },
+    {
+      "id": "mo6zxzz5x729zoa6nne",
+      "name": "Torneo Isla Carambola",
+      "dateStart": "2026-04-02",
+      "dateEnd": "2026-04-03",
+      "time": "09:00",
+      "venue": "Federació Balear",
+      "mode": "Carambola",
+      "status": "finalizado",
+      "notes": "Campeón: Marc T."
+    }
+  ]
+}
