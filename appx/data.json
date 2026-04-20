@@ -2234,6 +2234,43 @@
       "id": 1775759589591
     }
   ],
+  "players": [
+    "Xisco",
+    "PEPE",
+    "Jepy",
+    "Test",
+    "Guillermo",
+    "Jesus Muñoz",
+    "Tolo",
+    "Xisco Mendez",
+    "Adrian Wood",
+    "Borja",
+    "Hector Oviedo",
+    "Jose Manuel Santiago",
+    "Javier Sala",
+    "Juanjo Cardona",
+    "Felipe González",
+    "Carlos Peñas",
+    "Pawel",
+    "Jaime Hernández",
+    "Héctor Oviedo",
+    "Óscar Olivas",
+    "Manuel Montejo",
+    "Ramil"
+  ],
+  "materials": [
+    "Velasco+Revo12.9",
+    "Lucasi+Revo12.9",
+    "Bear+Centro",
+    "Predator+Revo12.9",
+    "Peri+Revo12.9",
+    "Lucaso+Centro+Ext4",
+    "Peri+Cinergy11.8",
+    "Lucasi+SMO",
+    "Peri+SMO",
+    "Bear+SMO",
+    "Lucasi+Centro+Ext2"
+  ],
   "tournaments": [
     {
       "name": "Cto Mallorca B10",
@@ -4233,42 +4270,6 @@
       "updatedAt": "2026-03-29T23:01:55.374Z"
     }
   ],
-  "players": [
-    "Xisco",
-    "PEPE",
-    "Jepy",
-    "Test",
-    "Guillermo",
-    "Jesus Muñoz",
-    "Tolo",
-    "Xisco Mendez",
-    "Adrian Wood",
-    "Borja",
-    "Hector Oviedo",
-    "Jose Manuel Santiago",
-    "Javier Sala",
-    "Juanjo Cardona",
-    "Felipe González",
-    "Carlos Peñas",
-    "Pawel",
-    "Jaime Hernández",
-    "Héctor Oviedo",
-    "Óscar Olivas",
-    "Manuel Montejo",
-    "Ramil"
-  ],
-  "materials": [
-    "Velasco+Revo12.9",
-    "Lucasi+Revo12.9",
-    "Bear+Centro",
-    "Predator+Revo12.9",
-    "Peri+Revo12.9",
-    "Lucaso+Centro+Ext4",
-    "Peri+Cinergy11.8",
-    "Lucasi+SMO",
-    "Peri+SMO",
-    "Bear+SMO"
-  ],
   "circuits": [
     {
       "id": "circuit_1766137838490",
@@ -4613,10 +4614,10 @@
   ],
   "modalityStats": {
     "bola8": {
-      "matchesPlayed": 0,
-      "matchesWon": 0,
-      "gamesPlayed": 0,
-      "gamesWon": 0
+      "matchesPlayed": 357,
+      "matchesWon": 227,
+      "gamesPlayed": 39,
+      "gamesWon": 31
     },
     "bola9": {
       "matchesPlayed": 0,
@@ -4629,6 +4630,7 @@
       "matchesWon": 0,
       "gamesPlayed": 0,
       "gamesWon": 0
-    }
+    },
+    "lastUpdated": "2026-04-20T09:08:45.272Z"
   }
 }
