@@ -1,15 +1,3 @@
 {
-  "events": [
-    {
-      "id": "mo6zxzz4ssyzim9os3l",
-      "name": "4a Copa de España Senior",
-      "dateStart": "2026-04-25",
-      "dateEnd": "2026-04-26",
-      "time": "10:00",
-      "venue": "Rias Baixas",
-      "mode": "10-Ball",
-      "status": "proxima",
-      "notes": ""
-    }
-  ]
+  "events": []
 }
