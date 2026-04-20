@@ -1,3 +1,15 @@
 {
-  "events": []
+  "events": [
+    {
+      "id": "mo70sveos14mzd0bvai",
+      "name": "khdsasj lkadsj",
+      "dateStart": "2026-05-01",
+      "dateEnd": "2026-05-10",
+      "time": "01:00",
+      "venue": "almeria",
+      "mode": "9-Ball",
+      "status": "proxima",
+      "notes": ""
+    }
+  ]
 }
