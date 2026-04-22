@@ -7019,23 +7019,23 @@
   ],
   "modalityStats": {
     "bola8": {
-      "matchesPlayed": 39,
-      "matchesWon": 31,
-      "gamesPlayed": 357,
-      "gamesWon": 227
+      "matchesPlayed": 0,
+      "matchesWon": 0,
+      "gamesPlayed": 0,
+      "gamesWon": 0
     },
     "bola9": {
-      "matchesPlayed": 95,
-      "matchesWon": 68,
-      "gamesPlayed": 1013,
-      "gamesWon": 588
+      "matchesPlayed": 0,
+      "matchesWon": 0,
+      "gamesPlayed": 0,
+      "gamesWon": 0
     },
     "bola10": {
-      "matchesPlayed": 61,
-      "matchesWon": 47,
-      "gamesPlayed": 581,
-      "gamesWon": 374
+      "matchesPlayed": 0,
+      "matchesWon": 0,
+      "gamesPlayed": 0,
+      "gamesWon": 0
     },
-    "lastUpdated": "2026-04-21T08:17:05.222Z"
+    "lastUpdated": "2026-04-22T10:04:38.357Z"
   }
 }
