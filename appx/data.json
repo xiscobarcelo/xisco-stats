@@ -4080,6 +4080,105 @@
       "modality": "Bola 8",
       "date": "2022-11-19",
       "id": 1776846603946
+    },
+    {
+      "player1": "Xisco",
+      "player2": "Adrian Vazquez Lopez",
+      "score1": "7",
+      "score2": "1",
+      "material1": "Lucasi+Revo12.9",
+      "material2": "rival",
+      "modality": "Bola 9",
+      "date": "2022-11-19",
+      "id": 1776847008757
+    },
+    {
+      "player1": "Xisco",
+      "player2": "José Agustín Torga",
+      "score1": "6",
+      "score2": "7",
+      "material1": "Velasco+Revo12.9",
+      "material2": "rival",
+      "modality": "Bola 10",
+      "date": "2022-06-19",
+      "id": 1776847008759
+    },
+    {
+      "player1": "Xisco",
+      "player2": "Sergio Lagunas",
+      "score1": "6",
+      "score2": "3",
+      "material1": "Velasco+Revo12.9",
+      "material2": "rival",
+      "modality": "Bola 10",
+      "date": "2022-06-19",
+      "id": 1776847008760
+    },
+    {
+      "player1": "Xisco",
+      "player2": "Emilio Amado",
+      "score1": "5",
+      "score2": "6",
+      "material1": "Velasco+Revo12.9",
+      "material2": "rival",
+      "modality": "Bola 10",
+      "date": "2022-06-19",
+      "id": 1776847008761
+    },
+    {
+      "player1": "Xisco",
+      "player2": "Fran Abad",
+      "score1": "6",
+      "score2": "2",
+      "material1": "Velasco+Revo12.9",
+      "material2": "rival",
+      "modality": "Bola 10",
+      "date": "2022-06-19",
+      "id": 1776847008762
+    },
+    {
+      "player1": "Xisco",
+      "player2": "Domingo Manso",
+      "score1": "6",
+      "score2": "3",
+      "material1": "Velasco+Revo12.9",
+      "material2": "rival",
+      "modality": "Bola 10",
+      "date": "2022-06-19",
+      "id": 1776847008763
+    },
+    {
+      "player1": "Xisco",
+      "player2": "Sergio Lagunas",
+      "score1": "4",
+      "score2": "6",
+      "material1": "Velasco+Revo12.9",
+      "material2": "rival",
+      "modality": "Bola 9",
+      "date": "2022-06-18",
+      "id": 1776847008764
+    },
+    {
+      "player1": "Xisco",
+      "player2": "Francisco Javier Miera",
+      "score1": "6",
+      "score2": "5",
+      "material1": "Velasco+Revo12.9",
+      "material2": "rival",
+      "modality": "Bola 9",
+      "date": "2022-06-18",
+      "id": 1776847008765
+    },
+    {
+      "player1": "Xisco",
+      "player2": "Jepy",
+      "score1": "1",
+      "score2": "6",
+      "material1": "Velasco+Revo12.9",
+      "material2": "rival",
+      "modality": "Bola 9",
+      "date": "2022-06-18",
+      "id": 1776847008766
     }
   ],
   "players": [
@@ -4189,7 +4288,10 @@
     "Steve Boyle",
     "Juan Manuel Cerdeira",
     "Jose Angel Nogueira",
-    "Pedro Bustos"
+    "Pedro Bustos",
+    "Adrian Vazquez Lopez",
+    "Domingo Manso",
+    "Francisco Javier Miera"
   ],
   "materials": [
     "Velasco+Revo12.9",
