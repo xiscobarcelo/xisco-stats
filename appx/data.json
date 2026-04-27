@@ -4531,6 +4531,61 @@
       "modality": "Bola 10",
       "date": "2026-04-23",
       "id": 1776976384019
+    },
+    {
+      "player1": "Xisco",
+      "player2": "Manuel Pérez",
+      "score1": "6",
+      "score2": "1",
+      "material1": "Lucasi+SMO",
+      "material2": "rival",
+      "modality": "Bola 10",
+      "date": "2026-04-24",
+      "id": 1777294499007
+    },
+    {
+      "player1": "Xisco",
+      "player2": "Jose Angel Nogueira",
+      "score1": "6",
+      "score2": "2",
+      "material1": "Lucasi+SMO",
+      "material2": "rival",
+      "modality": "Bola 10",
+      "date": "2026-04-24",
+      "id": 1777294499008
+    },
+    {
+      "player1": "Xisco",
+      "player2": "Emilio Amado",
+      "score1": "7",
+      "score2": "5",
+      "material1": "Lucasi+SMO",
+      "material2": "rival",
+      "modality": "Bola 10",
+      "date": "2026-04-24",
+      "id": 1777294499009
+    },
+    {
+      "player1": "Xisco",
+      "player2": "Ibon Fuentes",
+      "score1": "7",
+      "score2": "1",
+      "material1": "Lucasi+SMO",
+      "material2": "rival",
+      "modality": "Bola 10",
+      "date": "2026-04-24",
+      "id": 1777294499010
+    },
+    {
+      "player1": "Xisco",
+      "player2": "Pablo Lagar",
+      "score1": "7",
+      "score2": "3",
+      "material1": "Lucasi+SMO",
+      "material2": "rival",
+      "modality": "Bola 10",
+      "date": "2026-04-24",
+      "id": 1777294499011
     }
   ],
   "players": [
@@ -4671,7 +4726,8 @@
     "Raoul Reichegger",
     "Onuc Altur",
     "Andrea Grosso",
-    "Sebastian Ramier"
+    "Sebastian Ramier",
+    "Manuel Pérez"
   ],
   "materials": [
     "Velasco+Revo12.9",
