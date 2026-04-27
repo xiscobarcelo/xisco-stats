@@ -6740,6 +6740,28 @@
       "id": "tournament_1774825174904",
       "createdAt": "2026-03-29T22:59:34.904Z",
       "updatedAt": "2026-03-29T23:01:55.374Z"
+    },
+    {
+      "name": "IV Copa España Sénior",
+      "date": "2026-04-25",
+      "modality": "Bola 10",
+      "totalPlayers": 24,
+      "result": "Campeón",
+      "circuit": "circuit_1766139032239",
+      "cue": "Lucasi+SMO",
+      "finalRival": "Pablo Lagar",
+      "notes": "Rias Baixas",
+      "stats": {
+        "matchesPlayed": 5,
+        "matchesWon": 5,
+        "matchesLost": 0,
+        "gamesWon": 33,
+        "gamesLost": 12,
+        "winRate": "100.0",
+        "averageGamesPerMatch": "9.0"
+      },
+      "id": "tournament_1777294631052",
+      "createdAt": "2026-04-27T12:57:11.052Z"
     }
   ],
   "circuits": [
