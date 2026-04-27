@@ -6742,7 +6742,7 @@
       "updatedAt": "2026-03-29T23:01:55.374Z"
     },
     {
-      "name": "IV Copa España Sénior",
+      "name": "Copa Sénior IV ",
       "date": "2026-04-25",
       "modality": "Bola 10",
       "totalPlayers": 24,
@@ -6761,7 +6761,8 @@
         "averageGamesPerMatch": "9.0"
       },
       "id": "tournament_1777294631052",
-      "createdAt": "2026-04-27T12:57:11.052Z"
+      "createdAt": "2026-04-27T12:57:11.052Z",
+      "updatedAt": "2026-04-27T12:58:05.422Z"
     }
   ],
   "circuits": [
