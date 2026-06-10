@@ -4696,6 +4696,17 @@
       "modality": "Bola 10",
       "date": "2026-06-08",
       "id": 1781082685773
+    },
+    {
+      "player1": "Xisco",
+      "player2": "Antonio Pelaez",
+      "score1": "7",
+      "score2": "5",
+      "material1": "Lucasi+SMO",
+      "material2": "rival",
+      "modality": "Bola 8",
+      "date": "2026-06-08",
+      "id": 1781082715852
     }
   ],
   "players": [
@@ -4839,7 +4850,8 @@
     "Sebastian Ramier",
     "Manuel Pérez",
     "Álvaro Lama",
-    "Eki Izagirre"
+    "Eki Izagirre",
+    "Antonio Pelaez"
   ],
   "materials": [
     "Velasco+Revo12.9",
