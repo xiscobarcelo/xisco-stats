@@ -4663,6 +4663,17 @@
       "modality": "Bola 10",
       "date": "2026-06-08",
       "id": 1781082569423
+    },
+    {
+      "player1": "Xisco",
+      "player2": "Álvaro Lama",
+      "score1": "6",
+      "score2": "7",
+      "material1": "Lucasi+SMO",
+      "material2": "rival",
+      "modality": "Bola 10",
+      "date": "2026-06-08",
+      "id": 1781082606877
     }
   ],
   "players": [
@@ -4804,7 +4815,8 @@
     "Onuc Altur",
     "Andrea Grosso",
     "Sebastian Ramier",
-    "Manuel Pérez"
+    "Manuel Pérez",
+    "Álvaro Lama"
   ],
   "materials": [
     "Velasco+Revo12.9",
