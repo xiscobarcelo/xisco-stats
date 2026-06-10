@@ -6887,6 +6887,28 @@
       "id": "tournament_1777294631052",
       "createdAt": "2026-04-27T12:57:11.052Z",
       "updatedAt": "2026-04-27T12:58:05.422Z"
+    },
+    {
+      "name": "Cto España Selecciones",
+      "date": "2026-06-08",
+      "modality": "Bola 10",
+      "totalPlayers": 12,
+      "result": "Campeón",
+      "circuit": "circuit_1766139032239",
+      "cue": "Lucasi+SMO",
+      "finalRival": "Antonio Pelaez",
+      "notes": "3 partidos a bola 10 y 2 a bola 8\nCólico\n",
+      "stats": {
+        "matchesPlayed": 5,
+        "matchesWon": 4,
+        "matchesLost": 1,
+        "gamesWon": 34,
+        "gamesLost": 23,
+        "winRate": "80.0",
+        "averageGamesPerMatch": "11.4"
+      },
+      "id": "tournament_1781082974373",
+      "createdAt": "2026-06-10T09:16:14.373Z"
     }
   ],
   "circuits": [
