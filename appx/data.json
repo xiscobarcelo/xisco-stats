@@ -6967,6 +6967,28 @@
       },
       "id": "tournament_1781082974373",
       "createdAt": "2026-06-10T09:16:14.373Z"
+    },
+    {
+      "name": "Cto España Sénior b10",
+      "date": "2026-06-19",
+      "modality": "Bola 10",
+      "totalPlayers": 35,
+      "result": "Semifinales",
+      "circuit": "circuit_1766139032239",
+      "cue": "Lucasi+SMO",
+      "finalRival": "Francisco Diaz",
+      "notes": "",
+      "stats": {
+        "matchesPlayed": 5,
+        "matchesWon": 4,
+        "matchesLost": 1,
+        "gamesWon": 205,
+        "gamesLost": 111,
+        "winRate": "80.0",
+        "averageGamesPerMatch": "63.2"
+      },
+      "id": "tournament_1781950756570",
+      "createdAt": "2026-06-20T10:19:16.570Z"
     }
   ],
   "circuits": [
