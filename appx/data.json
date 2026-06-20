@@ -4707,6 +4707,17 @@
       "modality": "Bola 8",
       "date": "2026-06-08",
       "id": 1781082715852
+    },
+    {
+      "player1": "Xisco",
+      "player2": "Francisco Javier González",
+      "score1": "6",
+      "score2": "3",
+      "material1": "Lucasi+SMO",
+      "material2": "rival",
+      "modality": "Bola 10",
+      "date": "2026-06-19",
+      "id": 1781950202600
     }
   ],
   "players": [
@@ -4851,7 +4862,8 @@
     "Manuel Pérez",
     "Álvaro Lama",
     "Eki Izagirre",
-    "Antonio Pelaez"
+    "Antonio Pelaez",
+    "Francisco Javier González"
   ],
   "materials": [
     "Velasco+Revo12.9",
