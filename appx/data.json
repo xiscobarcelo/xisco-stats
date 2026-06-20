@@ -4740,6 +4740,17 @@
       "modality": "Bola 10",
       "date": "2026-06-19",
       "id": 1781950270412
+    },
+    {
+      "player1": "Xisco",
+      "player2": "Ralf Steigelmeier",
+      "score1": "7",
+      "score2": "1",
+      "material1": "Lucasi+SMO",
+      "material2": "rival",
+      "modality": "Bola 10",
+      "date": "2026-06-19",
+      "id": 1781950333334
     }
   ],
   "players": [
@@ -4885,7 +4896,8 @@
     "Álvaro Lama",
     "Eki Izagirre",
     "Antonio Pelaez",
-    "Francisco Javier González"
+    "Francisco Javier González",
+    "Ralf Steigelmeier"
   ],
   "materials": [
     "Velasco+Revo12.9",
