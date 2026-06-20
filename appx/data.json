@@ -6969,11 +6969,11 @@
       "createdAt": "2026-06-10T09:16:14.373Z"
     },
     {
-      "name": "Cto España Sénior b10",
-      "date": "2026-06-19",
-      "modality": "Bola 10",
-      "totalPlayers": 35,
-      "result": "Semifinales",
+      "name": "Cto España Sénior 14:1",
+      "date": "2026-06-18",
+      "modality": "14.1 Continuo",
+      "totalPlayers": 18,
+      "result": "Subcampeón",
       "circuit": "circuit_1766139032239",
       "cue": "Lucasi+SMO",
       "finalRival": "Francisco Diaz",
@@ -6988,7 +6988,8 @@
         "averageGamesPerMatch": "63.2"
       },
       "id": "tournament_1781950756570",
-      "createdAt": "2026-06-20T10:19:16.570Z"
+      "createdAt": "2026-06-20T10:19:16.570Z",
+      "updatedAt": "2026-06-20T10:20:11.958Z"
     }
   ],
   "circuits": [
